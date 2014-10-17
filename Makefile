@@ -3,18 +3,15 @@ opt="-Wall -Werror"
 compiler="g++"
 
 all:
-	[] mkdir bin  #[] gives you if statement
-	# g++ werwer -o bin/rshell
-	#$(compiler) $(opt) 
-	echo "test"
-	pwd
+	#[] mkdir bin  #[] gives you if statement
+	g++ main.cpp -o file.out
 	echo "done"
 
 target2:
 	echo "test" && pwd && echo "done"
 
 clean:
-
+	rm *.o *.out
 
 install:
 
