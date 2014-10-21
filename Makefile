@@ -1,15 +1,14 @@
 # This is the Makefile for rshell
-opt="-Wall -Werror -ansi -pedantic"
-compiler="g++"
+opt:= -Wall -Werror -ansi -pedantic
+compiler := g++
+objdir := bin
 
-all:
-	mkdir bin
-	g++ ./src/main.cpp -o ./bin/rshell
+all: 
+	test -d $(objdir) || mkdir $(objdir)
+	$(compiler) ./src/main.cpp $(opt) -o ./bin/rshell
 
 rshell:
-	($compiler) ./src/main.cpp ($opt) -o ./bin/rshell
+	$(compiler) ./src/main.cpp $(opt) -o ./bin/rshell
 
 clean:
-	rm -rf bin
-
-
+	rm -rf $(objdir)
