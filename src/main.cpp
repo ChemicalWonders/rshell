@@ -6,13 +6,26 @@
 
 using namespace std;
 
+char ** changeToArray(char ** commandList, char* commands, const char* parser){
+        int i;
+        char* parsingKey = strtok(commands, parser);
+
+        for (i = 0; parsingKey != NULL; parsingKey = strtok(NULL, parser) ){
+                commandList[i] = parsingKey;
+                ++i;
+        }
+
+        commandList[i] = NULL;
+        return commandList;
+}
+
 int main()
 {       
         string user_stream;
-        const char * commands;
-        char * parsed;
         const char * parser = " ;";
+        char * parsedString;
         char * username = getlogin();
+        char ** commandstream = NULL;
 
         char host[1024];
         gethostname(host, 1024);
@@ -32,20 +45,16 @@ int main()
                 getline(cin, user_stream);
 
                 //Parsing the string using strdup to change from const char* to char*
-                parsed = strdup(user_stream.c_str());
+                parsedString = strdup(user_stream.c_str());
 
-                //Tokenizes the first one in the array.
-                commands = strtok(parsed, parser);
+                changeToArray(commandstream, parsedString, parser);
+
+                execvp(parsedString, commandstream);
 
                 
-                /* walk through to check if commands are null terminated.
-                while( commands != NULL ) 
-                {
-                        printf( " %s\n", commands );
-                        commands = strtok(NULL, parser );
-                }
+                //walk through to check if commands are null terminated.
                 
-
+                /*
                 if (user_stream == "exit"){
                         cout << "Shell will be terminated now." << endl; 
                         exit(0);
@@ -53,6 +62,7 @@ int main()
                 */
 
                 //Creating a fork process
+                /*
                 int pid = fork();
         
 
@@ -62,6 +72,15 @@ int main()
                         cout << "Fork broke. Shell will now exit." << endl;
                         exit(1);
                 }
+                else if (pid == 0){
+                        
+                }
+
+                else{
+                        wait(NULL);
+                        cout << "I'm done." << endl;
+                }
+                */
 
         }
         /*
