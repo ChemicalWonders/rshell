@@ -6,6 +6,18 @@
 
 using namespace std;
 
+int sizefunc(char* commandstream, const char* delim){
+        int i;
+        char* p = strtok(commandstream, delim);
+
+        for (i = 0; p!= NULL; p = strtok(NULL, delim) ){
+                ++i;
+        }
+
+        return (i+1);
+
+}
+
 char ** changeToArray(char ** commandList, char* commands, const char* parser){
         int i;
         char* parsingKey = strtok(commands, parser);
@@ -25,10 +37,11 @@ int main()
         const char * parser = " ;";
         char * parsedString;
         char * username = getlogin();
-        char ** commandstream = NULL;
 
-        char host[1024];
-        gethostname(host, 1024);
+        int sizeofstring;
+
+        char host[100];
+        gethostname(host, 100);
 
         //Introductory Message to make sure shell is running.
         cout << "Hello, and welcome to Kevin's shell." << endl;
@@ -47,10 +60,13 @@ int main()
                 //Parsing the string using strdup to change from const char* to char*
                 parsedString = strdup(user_stream.c_str());
 
-                changeToArray(commandstream, parsedString, parser);
+                sizeofstring = sizefunc(parsedString, parser);
+
+                char ** commandstream = new char*[sizeofstring];
+
+                commandstream = changeToArray(commandstream, parsedString, parser);
 
                 execvp(parsedString, commandstream);
-
                 
                 //walk through to check if commands are null terminated.
                 
