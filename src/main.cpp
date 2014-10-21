@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <boost/tokenizer.hpp>
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -7,9 +8,10 @@
 using namespace std;
 
 int main()
-{
-	string user_stream;
-        char * username = getlogin();
+{       
+        string user_stream;
+        char * commands;
+        //char * username = getlogin();
 
         char host[1024];
         gethostname(host, 1024);
@@ -17,6 +19,16 @@ int main()
         //Introductory Message to make sure shell is running.
         cout << "Hello, and welcome to Kevin's shell." << endl;
 
+        getline(cin, user_streaming);
+
+        user_stream = user_streaming.c_str();
+
+        tokenizer<> tok(user_stream);
+
+        for(tokenizer<>::iterator it=tok.begin(); it!=tok.end(); it++){
+                cout << *it << "\n";
+        }
+      /*
         while(1){
 
                 //int pid = fork();
@@ -32,10 +44,10 @@ int main()
                         cout << "Shell will be terminated now." << endl; 
                         exit(0);
                 }
-
+        
 
                 //if (pid == 0){
-                cout << "You have typed something in. What do I do now?" << endl;
+                //cout << "You have typed something in. What do I do now?" << endl;
                 //cout << "I'm a child process. " << endl;
                 //PID will return 0 when you have nothing left to execute.
 
@@ -43,7 +55,6 @@ int main()
                 //}
 
         }
-	/*
 	if (pid == 0){
 		cout << "I'm a child process. " << endl;
 		//PID returns 0 when you have nothing left to execute.
