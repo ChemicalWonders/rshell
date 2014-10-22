@@ -35,16 +35,18 @@ bool checkforexit(char ** &commandList, char* commands, const char* pk){
                 //cout << "CommandList@" << it << ": " << commandList[it] << endl;        }
 }
 
-void changeToArray(char ** &commandList, char* commands, const char* parser){
+char ** changeToArray(char ** commandList, char* commands, const char* parser){
         int it = 0;
         char* pkey = strtok(commands, parser);
 
         for (it = 0; pkey != NULL; ++it, pkey = strtok(NULL, parser)){
 		commandList[it] = pkey;
+
                 //cout << "CommandList@" << it << ": " << commandList[it] << endl;
         }
         //cout << "it is @ " << it << endl;
         commandList[it] = NULL;
+        return commandList;
 }
 
 int main()
@@ -75,12 +77,18 @@ int main()
                 //Gets line for user stream.
                 getline(cin, user_stream);
 
+                if (user_stream == "exit"){
+                        cout << "Thank you for using the program.\n";
+                        exit(0);
+                }
+
 
                 //Parsing the string using strdup to change from const char* to char*
                 parsedString = strdup(user_stream.c_str());
-		char ** commmand = new char* [sizeof(parsedString)+1];
 
-                changeToArray(commmand, parsedString, parr);
+		char ** command = new char *[sizeof(parsedString)+1];
+
+                command = changeToArray(command, parsedString, parr);
 
                 int pid = fork();
 
@@ -89,13 +97,14 @@ int main()
 		}
                 else if (pid == 0){
 			
-                        if(execvp( (const char*) command[0] , (char* const*) command) == -1){
+                        if(execvp( (const char*) command [0] , (char* const*) command) == -1){
                                 perror("Unable to perform request.");
                         }
 		
                 }
                 else{
                         wait(NULL);
+
                         /*
                         if (checkforexit(commandstream, parsedString, parr)){
                                 cout << "Thank you for using rshell. Goodbye.\n";
