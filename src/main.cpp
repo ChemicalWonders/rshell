@@ -26,12 +26,9 @@ bool checkforexit(char ** &commandList, char* commands, const char* pk){
         int c = 0;
         bool exiting = false;
         char* par = strtok(commands, pk);
-        const char* exitword = "exit";
 
         for (c = 0; par != NULL; ++c, par = strtok(NULL, pk)){
-                if (strcmp(exitword, commandList[c])){
-                        exiting = true;
-                }
+                
                 commandList[c] = par;
         }
         return exiting;
@@ -43,7 +40,7 @@ void changeToArray(char ** &commandList, char* commands, const char* parser){
         char* pkey = strtok(commands, parser);
 
         for (it = 0; pkey != NULL; ++it, pkey = strtok(NULL, parser)){
-
+		commandList[it] = pkey;
                 //cout << "CommandList@" << it << ": " << commandList[it] << endl;
         }
         //cout << "it is @ " << it << endl;
@@ -54,9 +51,7 @@ int main()
 {       
         string user_stream;
         char * parsedString = NULL;
-        //char * iterate = NULL;
         char * username = getlogin();
-
 
         const char * parr = " ";
         //const char * andL = "&&";
@@ -82,22 +77,22 @@ int main()
 
 
                 //Parsing the string using strdup to change from const char* to char*
-                strcpy(parsedString, user_stream.c_str());
-                
+                parsedString = strdup(user_stream.c_str());
+		char ** commmand = new char* [sizeof(parsedString)+1];
 
-                char ** commandstream = new char*[sizeof(parsedString)+1];
-                changeToArray(commandstream, parsedString, parr);
+                changeToArray(commmand, parsedString, parr);
 
                 int pid = fork();
 
                 if (pid == -1){
-                        cout << "You have taken up all the processes available.\n Please kill some processes before continuing.\n ";
-                }
+                	perror("Fork failed");
+		}
                 else if (pid == 0){
-
-                        if(execvp((const char*)commandstream[0], (char* const*) commandstream) == -1){
-                                cout << "Unable to perform request." << endl;
+			
+                        if(execvp( (const char*) command[0] , (char* const*) command) == -1){
+                                perror("Unable to perform request.");
                         }
+		
                 }
                 else{
                         wait(NULL);
