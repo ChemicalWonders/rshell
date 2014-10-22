@@ -80,16 +80,9 @@ int main()
                 //Gets line for user stream.
                 getline(cin, user_stream);
 
-                //int strlength = user_stream.length();
-                int hashpos = user_stream.find("#");
-
 
                 //Parsing the string using strdup to change from const char* to char*
                 strcpy(parsedString, user_stream.c_str());
-
-                parsedString[hashpos] = '\0';
-
-
                 
 
                 char ** commandstream = new char*[sizeof(parsedString)+1];
