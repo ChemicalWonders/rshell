@@ -8,4 +8,10 @@ If there are any concerns with the shell, please let me know.
 ### Licensing
 I am licensed under the MIT License. If you have any use for my code, then I just ask that you please credit me for what you do. If you are found to copy my code, and claim it as yourself, your school might take action against you. I will not be found liable for anything that happens.
 
+###Bugs
 
+* connectors (|| and &&) do not work at all
+* comments will not work.
+* when you put a comment in the middle of the command, it won't show.
+* up arrow and down arrow does not show previous commands
+* echo with quotes don't work, my program only parses whitespace
