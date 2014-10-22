@@ -6,6 +6,9 @@
 
 using namespace std;
 
+
+/* 
+// Deprecated function call.
 int sizefunc(char* commandstream, const char* delim){
         int i;
         char* p = strtok(commandstream, delim);
@@ -13,32 +16,52 @@ int sizefunc(char* commandstream, const char* delim){
         for (i = 0; p!= NULL; p = strtok(NULL, delim) ){
                 ++i;
         }
-
         return (i+1);
 
 }
+*/
 
-char ** changeToArray(char ** commandList, char* commands, const char* parser){
-        int i;
-        char* parsingKey = strtok(commands, parser);
+bool checkforexit(char ** &commandList, char* commands, const char* pk){
+        int c = 0;
+        bool exiting = false;
+        char* par = strtok(commands, pk);
+        const char* exitword = "exit";
 
-        for (i = 0; parsingKey != NULL; parsingKey = strtok(NULL, parser) ){
-                commandList[i] = parsingKey;
-                ++i;
+        for (c = 0; par != NULL; ++c, par = strtok(NULL, pk)){
+                if (strcmp(exitword, commandList[c])){
+                        exiting = true;
+                }
+                commandList[c] = par;
         }
+        return exiting;
+                //cout << "CommandList@" << it << ": " << commandList[it] << endl;        }
+}
 
-        commandList[i] = NULL;
-        return commandList;
+void changeToArray(char ** &commandList, char* commands, const char* parser){
+        int it = 0;
+        char* pkey = strtok(commands, parser);
+
+        for (it = 0; pkey != NULL; ++it, pkey = strtok(NULL, parser)){
+                if(commandList != "#"){
+                        commandList[it] = pkey;
+                }
+                //cout << "CommandList@" << it << ": " << commandList[it] << endl;
+        }
+        //cout << "it is @ " << it << endl;
+        commandList[it] = NULL;
 }
 
 int main()
 {       
         string user_stream;
-        const char * parser = " ;";
         char * parsedString;
         char * username = getlogin();
 
-        int sizeofstring;
+
+        const char * parr = " ";
+        //const char * andL = "&&";
+        //const char * orL =  "||";
+        //const char * semiL = ";";
 
         char host[100];
         gethostname(host, 100);
@@ -59,63 +82,32 @@ int main()
 
                 //Parsing the string using strdup to change from const char* to char*
                 parsedString = strdup(user_stream.c_str());
+                char ** commandstream = new char*[sizeof(parsedString)+1];
+                changeToArray(commandstream, parsedString, parr);
 
-                sizeofstring = sizefunc(parsedString, parser);
-
-                char ** commandstream = new char*[sizeofstring];
-
-                commandstream = changeToArray(commandstream, parsedString, parser);
-
-                execvp(parsedString, commandstream);
-                
-                //walk through to check if commands are null terminated.
-                
-                /*
-                if (user_stream == "exit"){
-                        cout << "Shell will be terminated now." << endl; 
-                        exit(0);
-                }
-                */
-
-                //Creating a fork process
-                /*
                 int pid = fork();
-        
 
                 if (pid == -1){
-
-                        //PID will return -1 when an error occurs.
-                        cout << "Fork broke. Shell will now exit." << endl;
-                        exit(1);
+                        cout << "You have taken up all the processes available.\n Please kill some processes before continuing.\n ";
                 }
                 else if (pid == 0){
-                        
-                }
 
+                        if(execvp((const char*)commandstream[0], (char* const*) commandstream) == -1){
+                                cout << "Unable to perform request." << endl;
+                        }
+                }
                 else{
                         wait(NULL);
-                        cout << "I'm done." << endl;
+                        /*
+                        if (checkforexit(commandstream, parsedString, parr)){
+                                cout << "Thank you for using rshell. Goodbye.\n";
+                                exit(1);
+                        }
+                        */
                 }
-                */
+
 
         }
-        /*
-	if (pid == 0){
-		cout << "I'm a child process. " << endl;
-		//PID returns 0 when you have nothing left to execute.
-	
-		char *argv[3];
-                strcpy(argv[0], "ls");
-                argv[1] = "-a";
-                argv[2] = "-l";
-                cout << "before" << endl;
-                execvp ("ls", argv);
-                cout << "after" << endl; // Nothing after execvp will ever be run.
-        }
-        else{
-                wait(NULL);
-                cout << "I'm a parent process." << endl;
-        }*/
 
         return 0;
 
