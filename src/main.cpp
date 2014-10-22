@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -52,7 +52,7 @@ void changeToArray(char ** &commandList, char* commands, const char* parser){
 int main()
 {       
         string user_stream;
-        //char * parsedString = NULL;
+        char * parsedString = NULL;
         //char * iterate = NULL;
         char * username = getlogin();
 
@@ -71,7 +71,7 @@ int main()
         while(1){
 
                 // Prints out the username and hostname if it exists.
-                if (username && host){
+                if (username){
                         cout << username << "@" << host;
                 }
                 cout << "$ ";
@@ -81,8 +81,6 @@ int main()
 
                 int strlength = user_stream.length();
                 int hashpos = user_stream.find("#");
-
-                char parsedString[strlength];
 
 
                 //Parsing the string using strdup to change from const char* to char*
