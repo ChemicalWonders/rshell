@@ -82,6 +82,11 @@ int main()
                         exit(0);
                 }
 
+                int hashpos = user_stream.find('#');
+                
+                if (hashpos != -1){
+                       user_stream.erase(hashpos);
+                }
 
                 //Parsing the string using strdup to change from const char* to char*
                 parsedString = strdup(user_stream.c_str());

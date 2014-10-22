@@ -11,7 +11,6 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 ###Bugs
 
 * connectors (|| and &&) do not work at all
-* comments will not work.
 * when you put a comment in the middle of the command, it won't show.
 * up arrow and down arrow does not show previous commands
 * echo with quotes don't work, my program only parses whitespace

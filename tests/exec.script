@@ -1,188 +1,198 @@
-Script started on Tue Oct 21 23:29:13 2014
-[?1034hbash-3.2$ make
+Script started on Tue Oct 21 23:45:49 2014
+[?1034hbash-3.2$ ls
+exec.script
+bash-3.2$ cd ..
+bash-3.2$ ls
+LICENSE		Makefile	README.md	src		tests
+bash-3.2$ make [K[K[K[K[Kmake 
 test -d bin || mkdir bin
 g++ ./src/main.cpp -Wall -Werror -ansi -pedantic -o ./bin/rshell
-bash-3.2$ make[K[K[K[Kl[Kls[K[Km[Kbin/s[Krshell
+bash-3.2$ ls
+LICENSE		README.md	src
+Makefile	bin		tests
+bash-3.2$ bi[K[Kbin/rshell
 Hello, and welcome to Kevin's shell.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls  ls
+LICENSE		README.md	src
+Makefile	bin		tests
 mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls -a
-.		.gitattributes	Makefile	exec.script
-..		.gitignore	README.md	src
-.git		LICENSE		bin		tests
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ #ls
-Unable to perform request.: No such file or directory
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ # 
-Unable to perform request.: No such file or directory
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ # hello world
-Unable to perform request.: No such file or directory
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ hello  
-Unable to perform request.: No such file or directory
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ echo "Hello World"
-"Hello World"
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ " echo "E  eh  Helllllllll                       World
-Helllllllll World
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ git   make
-test -d bin || mkdir bin
-g++ ./src/main.cpp -Wall -Werror -ansi -pedantic -o ./bin/rshell
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ make clean
-rm -rf bin
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ make
-test -d bin || mkdir bin
-g++ ./src/main.cpp -Wall -Werror -ansi -pedantic -o ./bin/rshell
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ r bin/rshell
-Hello, and welcome to Kevin's shell.
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ what is this
-is: No such file or directory
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ hello     git log  
-[?1h=[33mcommit 965a99f584e1f653c540ac19e6cee380de005286[m[m
-Author: Kevin Chan <kchan039@gmail.com>[m
-Date:   Tue Oct 21 23:28:38 2014 -0700[m
-[m
-    Added another bug to the readme[m
-[m
-[33mcommit 36e45d82f4ae92aeddf83042acd439415f968fa5[m[m
-Author: Kevin Chan <kchan039@gmail.com>[m
-Date:   Tue Oct 21 23:23:57 2014 -0700[m
-[m
-    Changed some files in src and README.md[m
-[m
-[33mcommit e77167ed9cbf654dc5fdddf62a5112de9c7ced2a[m[m
-Author: Kevin Chan <kchan039@gmail.com>[m
-Date:   Tue Oct 21 23:07:27 2014 -0700[m
-[m
-    Completed exit case. Only missing connectors[m
-[m
-[33mcommit 18834d406efa3665f9eddf91f3397fb450235364[m[m
-Author: Kevin Chan <kchan039@gmail.com>[m
-Date:   Tue Oct 21 22:34:04 2014 -0700[m
-[m
-    Need to fixe main.cpp command was not declared[m
-[m
-[33mcommit 7be89e4668c3e77e9ca4c45d42a8696a854e5cf4[m[m
-Author: Kevin Chan <kchan039@gmail.com>[m
-Date:   Tue Oct 21 21:38:10 2014 -0700[m
-[m
-    Cleans up stuff[m
-[m
-[33mcommit f482b9968cda7a2f107f7c8d5b7086af2733e0c0[m[m
-Author: Kevin Chan <kchan039@gmail.com>[m
-Date:   Tue Oct 21 21:36:53 2014 -0700[m
-[m
-    Added sys/wait.h[m
-[m
-[33mcommit 392b8db942669086a8546f5ca3f37eec2dded9f7[m[m
-Author: Kevin Chan <kchan039@gmail.com>[m
-Date:   Tue Oct 21 21:34:55 2014 -0700[m
-[m
-    Changed some file names[m
-[m
-[33mcommit 8997601d6a730d57d5db31a715d693b156fb6c4e[m[m
-Author: Kevin Chan <kchan039@gmail.com>[m
-Date:   Tue Oct 21 21:33:06 2014 -0700[m
-[m
-:[K[K[?1l>mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ git c     ls -a ""  || mkdir alpha
-ls: alpha: No such file or directory
-ls: mkdir: No such file or directory
-ls: ||: No such file or directory
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ l touch
-usage:
-touch [-A [-][[hh]mm]SS] [-acfhm] [-r file] [-t [[CC]YY]MMDDhhmm[.SS]] file ...
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ man exev cvp
-[?1049h[?1h=
-EXEC(3)                  BSD Library Functions Manual                  EXEC(3)
+.		.gitattributes	Makefile	src
+..		.gitignore	README.md	tests
+.git		LICENSE		bin
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ l  s -  a l -m
+., .., .git, .gitattributes, .gitignore, LICENSE, Makefile, README.md, bin, src, tests
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ git
+usage: git [--version] [--help] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty Git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+'git help -a' and 'git help -g' lists available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ gi  man git
+[?1049h[?1h=GIT(1)                              Git Manual                             GIT(1)
 
 [1mNAME[0m
-     [1mexecl[0m, [1mexecle[0m, [1mexeclp[0m, [1mexecv[0m, [1mexecvp[0m, [1mexecvP[0m -- execute a file
-
-[1mLIBRARY[0m
-     Standard C Library (libc, -lc)
+       git - the stupid content tracker
 
 [1mSYNOPSIS[0m
-     [1m#include[0m [1m<unistd.h>[0m
-
-     [4mextern[24m [4mchar[24m [4m**environ[24m;
-
-     [4mint[24m
-     [1mexecl[0m([4mconst[24m [4mchar[24m [4m*path[24m, [4mconst[24m [4mchar[24m [4m*arg0[24m, [4m...[24m [4m/*[24m, [4m(char[24m [4m*)0[24m [4m*/[24m);
-
-     [4mint[24m
-     [1mexecle[0m([4mconst[24m [4mchar[24m [4m*path[24m, [4mconst[24m [4mchar[24m [4m*arg0[24m, [4m...[24m
-         [4m/*[24m, [4m(char[24m [4m*)0[24m, [4mchar[24m [4m*const[24m [4menvp[][24m [4m*/[24m);
-
-     [4mint[24m
-     [1mexeclp[0m([4mconst[24m [4mchar[24m [4m*file[24m, [4mconst[24m [4mchar[24m [4m*arg0[24m, [4m...[24m [4m/*[24m, [4m(char[24m [4m*)0[24m [4m*/[24m);
-
-     [4mint[24m
-     [1mexecv[0m([4mconst[24m [4mchar[24m [4m*path[24m, [4mchar[24m [4m*const[24m [4margv[][24m);
-
-     [4mint[24m
-     [1mexecvp[0m([4mconst[24m [4mchar[24m [4m*file[24m, [4mchar[24m [4m*const[24m [4margv[][24m);
-
-     [4mint[24m
-     [1mexecvP[0m([4mconst[24m [4mchar[24m [4m*file[24m, [4mconst[24m [4mchar[24m [4m*search_path[24m, [4mchar[24m [4m*const[24m [4margv[][24m);
+       [4mgit[24m [--version] [--help] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
 
 [1mDESCRIPTION[0m
-     The [1mexec[0m family of functions replaces the current process image with a new
-     process image.  The functions described in this manual page are front-ends
-     for the function execve(2).  (See the manual page for execve(2) for detailed
-     information about the replacement of the current process.)
+       Git is a fast, scalable, distributed revision control system with an
+       unusually rich command set that provides both high-level operations and
+       full access to internals.
 
-     The initial argument for these functions is the pathname of a file which is
-     to be executed.
+       See [1mgittutorial[0m(7) to get started, then see [1mEveryday[0m [1mGit[0m[1] for a useful
+       minimum set of commands. The [1mGit[0m [1mUser's[0m [1mManual[0m[2] has a more in-depth
+       introduction.
 
-     The [4mconst[24m [4mchar[24m [4m*arg0[24m and subsequent ellipses in the [1mexecl[0m(), [1mexeclp[0m(), and
-     [1mexecle[0m() functions can be thought of as [4marg0[24m, [4marg1[24m, ..., [4margn[24m.  Together
-     they describe a list of one or more pointers to null-terminated strings that
-     represent the argument list available to the executed program.  The first
-:[K[K[?1l>[?1049lmageonlys@eduroam2-1-207-100.bulk.ucr.edu$ vim helloworld.cpp
-[?1049h[?1h=[1;47r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[47;1H"helloworld.cpp" [New File][>c[2;1H[94m~                                                                                         [3;1H~                                                                                         [4;1H~                                                                                         [5;1H~                                                                                         [6;1H~                                                                                         [7;1H~                                                                                         [8;1H~                                                                                         [9;1H~                                                                                         [10;1H~                                                                                         [11;1H~                                                                                         [12;1H~                                                                                         [13;1H~                                                                                         [14;1H~                                                                                         [15;1H~                                                                                         [16;1H~                                                                                         [17;1H~                                                                                         [18;1H~                                                                                         [19;1H~                                                                                         [20;1H~                                                                                         [21;1H~                                                                                         [22;1H~                                                                                         [23;1H~                                                                                         [24;1H~                                                                                         [25;1H~                                                                                         [26;1H~                                                                                         [27;1H~                                                                                         [28;1H~                                                                                         [29;1H~                                                                                         [30;1H~                                                                                         [31;1H~                                                                                         [32;1H~                                                                                         [33;1H~                                                                                         [34;1H~                                                                                         [35;1H~                                                                                         [36;1H~                                                                                         [37;1H~                                                                                         [38;1H~                                                                                         [39;1H~                                                                                         [40;1H~                                                                                         [41;1H~                                                                                         [42;1H~                                                                                         [43;1H~                                                                                         [44;1H~                                                                                         [45;1H~                                                                                         [46;1H~                                                                                         [1;1H[?12l[?25h[?25l[m[47;1H[1m-- INSERT --[m[47;13H[K[1;1H[?12l[?25h[?25lh[?12l[?25h[?25lhi[?12l[?25h[?25l [?12l[?25h[?25l t[?12l[?25h[?25lth[?12l[?25h[?25lhe[?12l[?25h[?25ler[?12l[?25h[?25lre[?12l[?25h[?25le![?12l[?25h[?25l!:[?12l[?25h[?25l[1;10H[K[1;10H[?12l[?25h[47;1H[K[1;9H[?25l[?12l[?25h[?25l[47;1H:[?12l[?25hw[?25l[47;2H[K[47;2H[?12l[?25hq[?25l[47;2H[K[47;2H[?12l[?25hq[?25l[97m[41mE37: No write since last change (add ! to override)[1;9H[?12l[?25h[?25l[m[47;1H[K[47;1H:[?12l[?25hwq[?25l"helloworld.cpp" [New] 1L, 10C written
+       After you mastered the basic concepts, you can come back to this page to
+       learn what commands Git offers. You can learn more about individual Git
+       commands with "git help command". [1mgitcli[0m(7) manual page gives you an
+       overview of the command line command syntax.
+
+       Formatted and hyperlinked version of the latest Git documentation can be
+       viewed at http://git-htmldocs.googlecode.com/git/git.html.
+
+[1mOPTIONS[0m
+       --version
+           Prints the Git suite version that the [4mgit[24m program came from.
+
+       --help
+           Prints the synopsis and a list of the most commonly used commands. If
+           the option [4m--all[24m or [4m-a[24m is given then all available commands are
+           printed. If a Git command is named this option will bring up the
+           manual page for that command.
+
+           Other options are available to control how the manual page is
+           displayed. See [1mgit-help[0m(1) for more information, because git --help
+           ...  is converted internally into git help ....
+
+       -c <name>=<value>
+           Pass a configuration parameter to the command. The value given will
+           override values from configuration files. The <name> is expected in
+:[K[K[?1l>[?1049lmageonlys@eduroam2-1-207-100.bulk.ucr.edu$ vim   helloworld.cpp
+[?1049h[?1h=[1;47r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[47;1H"helloworld.cpp" [New File][>c[2;1H[94m~                                                                                         [3;1H~                                                                                         [4;1H~                                                                                         [5;1H~                                                                                         [6;1H~                                                                                         [7;1H~                                                                                         [8;1H~                                                                                         [9;1H~                                                                                         [10;1H~                                                                                         [11;1H~                                                                                         [12;1H~                                                                                         [13;1H~                                                                                         [14;1H~                                                                                         [15;1H~                                                                                         [16;1H~                                                                                         [17;1H~                                                                                         [18;1H~                                                                                         [19;1H~                                                                                         [20;1H~                                                                                         [21;1H~                                                                                         [22;1H~                                                                                         [23;1H~                                                                                         [24;1H~                                                                                         [25;1H~                                                                                         [26;1H~                                                                                         [27;1H~                                                                                         [28;1H~                                                                                         [29;1H~                                                                                         [30;1H~                                                                                         [31;1H~                                                                                         [32;1H~                                                                                         [33;1H~                                                                                         [34;1H~                                                                                         [35;1H~                                                                                         [36;1H~                                                                                         [37;1H~                                                                                         [38;1H~                                                                                         [39;1H~                                                                                         [40;1H~                                                                                         [41;1H~                                                                                         [42;1H~                                                                                         [43;1H~                                                                                         [44;1H~                                                                                         [45;1H~                                                                                         [46;1H~                                                                                         [1;1H[?12l[?25h[?25l[m[47;1H[1m-- INSERT --[m[47;13H[K[1;1H[?12l[?25h[?25lI[?12l[?25h[?25lIN[?12l[?25h[?25l[1;2H[K[1;2H[?12l[?25h[?25l[1;1H[K[1;1H[?12l[?25h[?25l#[?12l[?25h[?25l#i[?12l[?25h[?25lin[?12l[?25h[?25lnc[?12l[?25h[?25lcl[?12l[?25h[?25llu[?12l[?25h[?25lud[?12l[?25h[?25lde[?12l[?25h[?25l [?12l[?25h[?25l <[?12l[?25h[?25l [?12l[?25h[?25l i[?12l[?25h[?25lio[?12l[?25h[?25los[?12l[?25h[?25l[1;14H[K[1;14H[?12l[?25h[?25l[1;13H[K[1;13H[?12l[?25h[?25l[1;12H[K[1;12H[?12l[?25h[?25l[?12l[?25h[?25l<i[?12l[?25h[?25lio[?12l[?25h[?25los[?12l[?25h[?25lst[?12l[?25h[?25ltr[?12l[?25h[?25lre[?12l[?25h[?25lea[?12l[?25h[?25lam[?12l[?25h[?25lm>[?12l[?25h[?25l [?12l[?25h[?25l[?12l[?25h[?25l[2;1H[K[2;1H[?12l[?25h[?25l[3;1H[K[3;1H[?12l[?25h[?25lu[?12l[?25h[?25lus[?12l[?25h[?25lsi[?12l[?25h[?25lin[?12l[?25h[?25lng[?12l[?25h[?25l [?12l[?25h[?25l n[?12l[?25h[?25lna[?12l[?25h[?25lam[?12l[?25h[?25lme[?12l[?25h[?25les[?12l[?25h[?25lsp[?12l[?25h[?25lpa[?12l[?25h[?25lac[?12l[?25h[?25lce[?12l[?25h[?25le.[?12l[?25h[?25l[3;16H[K[3;16H[?12l[?25h[?25l [?12l[?25h[?25l s[?12l[?25h[?25lst[?12l[?25h[?25ltd[?12l[?25h[?25ld;[?12l[?25h[?25l[4;1H[K[4;1H[?12l[?25h[?25l[5;1H[K[5;1H[?12l[?25h[?25li[?12l[?25h[?25lin[?12l[?25h[?25lnt[?12l[?25h[?25l [?12l[?25h[?25l m[?12l[?25h[?25lma[?12l[?25h[?25lai[?12l[?25h[?25lin[?12l[?25h[?25ln([?12l[?25h[?25l[106m()[?12l[?25h[?25l[m();[?12l[?25h[?25l[106m()[m[5;11H[K[5;11H[?12l[?25h[?25l()P[?12l[?25h[?25l[106m()[m[5;11H[K[5;11H[?12l[?25h[?25l(){[?12l[?25h[?25l[6;1H[K[6;1H[?12l[?25h[?25l[7;1H[K[7;1H[?12l[?25h[?25l[8C[?12l[?25h[?25l c[?12l[?25h[?25lco[?12l[?25h[?25lou[?12l[?25h[?25lut[?12l[?25h[?25l [?12l[?25h[?25l <[?12l[?25h[?25l<<[?12l[?25h[?25l [?12l[?25h[?25l e[?12l[?25h[?25leh[?12l[?25h[?25lhl[?12l[?25h[?25l[7;19H[K[7;19H[?12l[?25h[?25l[7;18H[K[7;18H[?12l[?25h[?25l[7;17H[K[7;17H[?12l[?25h[?25l H[?12l[?25h[?25lHe[?12l[?25h[?25lel[?12l[?25h[?25lll[?12l[?25h[?25llo[?12l[?25h[?25l [?12l[?25h[?25l W[?12l[?25h[?25lWO[?12l[?25h[?25lOr[?12l[?25h[?25lrl[?12l[?25h[?25l[7;26H[K[7;26H[?12l[?25h[?25l[7;25H[K[7;25H[?12l[?25h[?25l[7;24H[K[7;24H[?12l[?25h[?25lWo[?12l[?25h[?25lor[?12l[?25h[?25lrl[?12l[?25h[?25lld[?12l[?25h[?25ld![?12l[?25h[?25l [?12l[?25h[?25l :[?12l[?25h[?25l:D[?12l[?25h[?25l [?12l[?25h[?25l "[?12l[?25h[?25l  Hello World! :D "[7;17H[?12l[?25h[?25l " Hello World! :D "[7;18H[?12l[?25h Hello World! :D "[?25l [?12l[?25h[?25l <[?12l[?25h[?25l<<[?12l[?25h[?25l [?12l[?25h[?25l e[?12l[?25h[?25len[?12l[?25h[?25lnd[?12l[?25h[?25ldl[?12l[?25h[?25ll;[?12l[?25h[?25l[8;1H[K[8;1H[?12l[?25h[?25l[9;1H[K[9;1H[?12l[?25h[?25lr[?12l[?25h[?25lre[?12l[?25h[?25let[?12l[?25h[?25ltu[?12l[?25h[?25lur[?12l[?25h[?25lrn[?12l[?25h[?25l [?12l[?25h[?25l 0[?12l[?25h[?25l [?12l[?25h[?25l[?12l[?25h[?25l0;[?12l[?25h[?25l[10;1H[K[10;1H[?12l[?25h[?25l[5;11H[106m{[10;1H}[?12l[?25h[?25l[m[5;11H{[10;1H}[11;1H[K[11;1H[?12l[?25h[?25l:[?12l[?25h[?25l[11;1H[K[11;1H[?12l[?25h[47;1H[K[11;1H[?25l[?12l[?25h[?25l[47;1H:[?12l[?25hwq[?25l"helloworld.cpp" [New] 11L, 108C written
 [?1l>[?12l[?25h[?1049lmageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
-LICENSE		README.md	exec.script	src
-Makefile	bin		helloworld.cpp	tests
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm hellowrodl    orld.cpp
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ vim helloworld.cpp
-[?1049h[?1h=[1;47r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[47;1H"helloworld.cpp" [New File][>c[2;1H[94m~                                                                                         [3;1H~                                                                                         [4;1H~                                                                                         [5;1H~                                                                                         [6;1H~                                                                                         [7;1H~                                                                                         [8;1H~                                                                                         [9;1H~                                                                                         [10;1H~                                                                                         [11;1H~                                                                                         [12;1H~                                                                                         [13;1H~                                                                                         [14;1H~                                                                                         [15;1H~                                                                                         [16;1H~                                                                                         [17;1H~                                                                                         [18;1H~                                                                                         [19;1H~                                                                                         [20;1H~                                                                                         [21;1H~                                                                                         [22;1H~                                                                                         [23;1H~                                                                                         [24;1H~                                                                                         [25;1H~                                                                                         [26;1H~                                                                                         [27;1H~                                                                                         [28;1H~                                                                                         [29;1H~                                                                                         [30;1H~                                                                                         [31;1H~                                                                                         [32;1H~                                                                                         [33;1H~                                                                                         [34;1H~                                                                                         [35;1H~                                                                                         [36;1H~                                                                                         [37;1H~                                                                                         [38;1H~                                                                                         [39;1H~                                                                                         [40;1H~                                                                                         [41;1H~                                                                                         [42;1H~                                                                                         [43;1H~                                                                                         [44;1H~                                                                                         [45;1H~                                                                                         [46;1H~                                                                                         [1;1H[?12l[?25h[?25l[m[47;1H[K[47;1H:[?12l[?25h [1;1H[?25l[47;1H[97m[41mE348: No string under cursor[1;1H[?12l[?25h[?25l[m[47;1H[1m-- INSERT --[m[47;13H[K[1;1H[?12l[?25h[?25lI[?12l[?25h[?25lIn[?12l[?25h[?25l[1;2H[K[1;2H[?12l[?25h[?25l[1;1H[K[1;1H[?12l[?25h[?25l#[?12l[?25h[?25l#i[?12l[?25h[?25lin[?12l[?25h[?25lnc[?12l[?25h[?25lcl[?12l[?25h[?25l[1;5H[K[1;5H[?12l[?25h[?25l[1;4H[K[1;4H[?12l[?25h[?25l[1;3H[K[1;3H[?12l[?25h[?25l[1;2H[K[1;2H[?12l[?25h[?25l#i[?12l[?25h[?25lin[?12l[?25h[?25lnc[?12l[?25h[?25lcl[?12l[?25h[?25llu[?12l[?25h[?25lud[?12l[?25h[?25lde[?12l[?25h[?25l [?12l[?25h[?25l i[?12l[?25h[?25l[1;10H[K[1;10H[?12l[?25h[?25l <[?12l[?25h[?25l<i[?12l[?25h[?25lio[?12l[?25h[?25los[?12l[?25h[?25lst[?12l[?25h[?25ltr[?12l[?25h[?25lre[?12l[?25h[?25lea[?12l[?25h[?25lam[?12l[?25h[?25lm>[?12l[?25h[?25l[2;1H[K[2;1H[?12l[?25h[?25l[3;1H[K[3;1H[?12l[?25h[?25li[?12l[?25h[?25lin[?12l[?25h[?25lnt[?12l[?25h[?25l [?12l[?25h[?25l[?12l[?25h[?25l[3;3H[K[3;3H[?12l[?25h[?25l[3;2H[K[3;2H[?12l[?25h[?25l[3;1H[K[3;1H[?12l[?25h[?25lu[?12l[?25h[?25lus[?12l[?25h[?25lsi[?12l[?25h[?25lin[?12l[?25h[?25lng[?12l[?25h[?25l [?12l[?25h[?25l n[?12l[?25h[?25lna[?12l[?25h[?25lam[?12l[?25h[?25lme[?12l[?25h[?25les[?12l[?25h[?25lsp[?12l[?25h[?25lpa[?12l[?25h[?25lac[?12l[?25h[?25lce[?12l[?25h[?25l [?12l[?25h[?25l s[?12l[?25h[?25lst[?12l[?25h[?25ltd[?12l[?25h[?25ld;[?12l[?25h[?25l[4;1H[K[4;1H[?12l[?25h[?25l[5;1H[K[5;1H[?12l[?25h[?25lf[?12l[?25h[?25l[5;1H[K[5;1H[?12l[?25h[?25li[?12l[?25h[?25lin[?12l[?25h[?25lnt[?12l[?25h[?25l [?12l[?25h[?25l m[?12l[?25h[?25lma[?12l[?25h[?25lai[?12l[?25h[?25lin[?12l[?25h[?25ln([?12l[?25h[?25l[106m()[?12l[?25h[?25l[m();[?12l[?25h[?25l[106m()[m[5;11H[K[5;11H[?12l[?25h[?25l()P[?12l[?25h[?25l[106m()[m[5;11H[K[5;11H[?12l[?25h[?25l(){[?12l[?25h[?25l[6;1H[K[6;1H[?12l[?25h[?25l[7;1H[K[7;1H[?12l[?25h[?25l[8C[?12l[?25h[?25l c[?12l[?25h[?25lco[?12l[?25h[?25lou[?12l[?25h[?25lut[?12l[?25h[?25l [?12l[?25h[?25l <[?12l[?25h[?25l<<[?12l[?25h[?25l [?12l[?25h[?25l "[?12l[?25h[?25l"H[?12l[?25h[?25lHe[?12l[?25h[?25lel[?12l[?25h[?25lll[?12l[?25h[?25llo[?12l[?25h[?25low[?12l[?25h[?25l[7;23H[K[7;23H[?12l[?25h[?25l [?12l[?25h[?25l W[?12l[?25h[?25lWO[?12l[?25h[?25lOr[?12l[?25h[?25l[7;26H[K[7;26H[?12l[?25h[?25l[7;25H[K[7;25H[?12l[?25h[?25lWo[?12l[?25h[?25lor[?12l[?25h[?25lrl[?12l[?25h[?25lld[?12l[?25h[?25ld"[?12l[?25h[?25l [?12l[?25h[?25l[?12l[?25h[?25l"'[?12l[?25h[?25l [?12l[?25h[?25l[?12l[?25h[?25l[7;30H[K[7;30H[?12l[?25h[?25l [?12l[?25h[?25l <[?12l[?25h[?25l<<[?12l[?25h[?25l [?12l[?25h[?25l e[?12l[?25h[?25len[?12l[?25h[?25lnd[?12l[?25h[?25ldl[?12l[?25h[?25ll;[?12l[?25h[?25l[8;1H[K[8;1H[?12l[?25h[?25lr[?12l[?25h[?25lre[?12l[?25h[?25let[?12l[?25h[?25ltu[?12l[?25h[?25lur[?12l[?25h[?25lrn[?12l[?25h[?25l [?12l[?25h[?25l 0[?12l[?25h[?25l0;[?12l[?25h[?25l[9;1H[K[9;1H[?12l[?25h[?25l[5;11H[106m{[9;1H}[?12l[?25h[?25l[m[5;11H{[9;1H}[10;1H[K[10;1H[?12l[?25h[47;1H[K[10;1H[?25l[?12l[?25h[?25l[47;1H:[?12l[?25hwq[?25l"helloworld.cpp" [New] 10L, 101C written
-[?1l>[?12l[?25h[?1049lmageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
-LICENSE		README.md	exec.script	src
-Makefile	bin		helloworld.cpp	tests
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ g++ hellow	 world.cpp
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
-LICENSE		README.md	bin		helloworld.cpp	tests
-Makefile	a.out		exec.script	src
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ./a.out
-Hello World
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm helloworl	d.co pp
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm a.out
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
-LICENSE		README.md	exec.script	tests
+LICENSE		README.md	helloworld.cpp	tests
 Makefile	bin		src
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ make clean
-rm -rf bin
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
-Thank you for using the program.
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
-Thank you for using the program.
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
-Thank you for using the program.
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
-Thank you for using the program.
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
-Thank you for using the program.
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exirt
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ g g++ helloworld.cpp
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ gi  l ls
+LICENSE		README.md	bin		src
+Makefile	a.out		helloworld.cpp	tests
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ./a.out
+ Hello World! :D 
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ mo v a.out bin
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	helloworld.cpp	tests
+Makefile	bin		src
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ cd min   bin
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	helloworld.cpp	tests
+Makefile	bin		src
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm    c rm bin/a.out
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls bin
+rshell
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls bin -a
+ls: -a: No such file or directory
+bin:
+rshell
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls -a bin
+.	..	rshell
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ld s
+LICENSE		README.md	helloworld.cpp	tests
+Makefile	bin		src
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm -r  helloworld.cpp
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	src
+Makefile	bin		tests
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ mkdir myfellowamericans
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE			bin			tests
+Makefile		myfellowamericans
+README.md		src
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm -rf myrell    fellowamericans
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	src
+Makefile	bin		tests
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ la s &&&& ls
+ls: &&&&: No such file or directory
+ls: ls: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls && ls
+ls: &&: No such file or directory
+ls: ls: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls ||
+ls: ||: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls  || ls
 Unable to perform request.: No such file or directory
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ eixt
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ echo "hello world"
+"hello world"
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ echo hello worllllldfasdf     fasdf asdf       dsaf   asd    dfa sd fasd f            asdfasdfasdf   asdf
+hello worllllldfasdf fasdf asdf dsaf asd dfa sd fasd ¨Ò!wÿ
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ hi || echo "H hello WO  world"
 Unable to perform request.: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ hi && echo "hellow  world"
+Unable to perform request.: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ echo test > hello
+test > hello
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ m mkdir test; hell    echo helloworld
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	echo		src		tests
+Makefile	bin		helloworld	test;
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ee  rm test    -rf test;
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	echo		src
+Makefile	bin		helloworld	tests
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm echo
+rm: echo: is a directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm echo-       -rf echo
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	helloworld	tests
+Makefile	bin		src
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm helloworld
+rm: helloworld: is a directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm -rf helloworld
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	src
+Makefile	bin		tests
 mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
 Thank you for using the program.
-mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ eixt   xit
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
 Thank you for using the program.
 mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
 Thank you for using the program.
-bash-3.2$ exit
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ eix   ^C
+bash-3.2$ eixt[K[K[Kxit[K[K[K[Keix[K[Kxit
 exit
 
-Script done on Tue Oct 21 23:34:24 2014
+Script done on Tue Oct 21 23:51:12 2014
