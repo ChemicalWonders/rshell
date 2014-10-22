@@ -16,3 +16,6 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 * up arrow and down arrow does not show previous commands
 * echo with quotes don't work, my program only parses whitespace
 * changing directories does not work because it is a bash command
+* typing 'what' in the the terminal make it do something weird. not sure what's going on
+* sometimes the exit command needs to be entered a few times before exiting.
+* tabbing does not autocomplete the file or command name.

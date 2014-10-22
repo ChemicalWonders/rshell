@@ -1,0 +1,188 @@
+Script started on Tue Oct 21 23:29:13 2014
+[?1034hbash-3.2$ make
+test -d bin || mkdir bin
+g++ ./src/main.cpp -Wall -Werror -ansi -pedantic -o ./bin/rshell
+bash-3.2$ make[K[K[K[Kl[Kls[K[Km[Kbin/s[Krshell
+Hello, and welcome to Kevin's shell.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls -a
+.		.gitattributes	Makefile	exec.script
+..		.gitignore	README.md	src
+.git		LICENSE		bin		tests
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ #ls
+Unable to perform request.: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ # 
+Unable to perform request.: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ # hello world
+Unable to perform request.: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ hello  
+Unable to perform request.: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ echo "Hello World"
+"Hello World"
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ " echo "E  eh  Helllllllll                       World
+Helllllllll World
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ git   make
+test -d bin || mkdir bin
+g++ ./src/main.cpp -Wall -Werror -ansi -pedantic -o ./bin/rshell
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ make clean
+rm -rf bin
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ make
+test -d bin || mkdir bin
+g++ ./src/main.cpp -Wall -Werror -ansi -pedantic -o ./bin/rshell
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ r bin/rshell
+Hello, and welcome to Kevin's shell.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ what is this
+is: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ hello     git log  
+[?1h=[33mcommit 965a99f584e1f653c540ac19e6cee380de005286[m[m
+Author: Kevin Chan <kchan039@gmail.com>[m
+Date:   Tue Oct 21 23:28:38 2014 -0700[m
+[m
+    Added another bug to the readme[m
+[m
+[33mcommit 36e45d82f4ae92aeddf83042acd439415f968fa5[m[m
+Author: Kevin Chan <kchan039@gmail.com>[m
+Date:   Tue Oct 21 23:23:57 2014 -0700[m
+[m
+    Changed some files in src and README.md[m
+[m
+[33mcommit e77167ed9cbf654dc5fdddf62a5112de9c7ced2a[m[m
+Author: Kevin Chan <kchan039@gmail.com>[m
+Date:   Tue Oct 21 23:07:27 2014 -0700[m
+[m
+    Completed exit case. Only missing connectors[m
+[m
+[33mcommit 18834d406efa3665f9eddf91f3397fb450235364[m[m
+Author: Kevin Chan <kchan039@gmail.com>[m
+Date:   Tue Oct 21 22:34:04 2014 -0700[m
+[m
+    Need to fixe main.cpp command was not declared[m
+[m
+[33mcommit 7be89e4668c3e77e9ca4c45d42a8696a854e5cf4[m[m
+Author: Kevin Chan <kchan039@gmail.com>[m
+Date:   Tue Oct 21 21:38:10 2014 -0700[m
+[m
+    Cleans up stuff[m
+[m
+[33mcommit f482b9968cda7a2f107f7c8d5b7086af2733e0c0[m[m
+Author: Kevin Chan <kchan039@gmail.com>[m
+Date:   Tue Oct 21 21:36:53 2014 -0700[m
+[m
+    Added sys/wait.h[m
+[m
+[33mcommit 392b8db942669086a8546f5ca3f37eec2dded9f7[m[m
+Author: Kevin Chan <kchan039@gmail.com>[m
+Date:   Tue Oct 21 21:34:55 2014 -0700[m
+[m
+    Changed some file names[m
+[m
+[33mcommit 8997601d6a730d57d5db31a715d693b156fb6c4e[m[m
+Author: Kevin Chan <kchan039@gmail.com>[m
+Date:   Tue Oct 21 21:33:06 2014 -0700[m
+[m
+:[K[K[?1l>mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ 
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ git c     ls -a ""  || mkdir alpha
+ls: alpha: No such file or directory
+ls: mkdir: No such file or directory
+ls: ||: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ l touch
+usage:
+touch [-A [-][[hh]mm]SS] [-acfhm] [-r file] [-t [[CC]YY]MMDDhhmm[.SS]] file ...
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ man exev cvp
+[?1049h[?1h=
+EXEC(3)                  BSD Library Functions Manual                  EXEC(3)
+
+[1mNAME[0m
+     [1mexecl[0m, [1mexecle[0m, [1mexeclp[0m, [1mexecv[0m, [1mexecvp[0m, [1mexecvP[0m -- execute a file
+
+[1mLIBRARY[0m
+     Standard C Library (libc, -lc)
+
+[1mSYNOPSIS[0m
+     [1m#include[0m [1m<unistd.h>[0m
+
+     [4mextern[24m [4mchar[24m [4m**environ[24m;
+
+     [4mint[24m
+     [1mexecl[0m([4mconst[24m [4mchar[24m [4m*path[24m, [4mconst[24m [4mchar[24m [4m*arg0[24m, [4m...[24m [4m/*[24m, [4m(char[24m [4m*)0[24m [4m*/[24m);
+
+     [4mint[24m
+     [1mexecle[0m([4mconst[24m [4mchar[24m [4m*path[24m, [4mconst[24m [4mchar[24m [4m*arg0[24m, [4m...[24m
+         [4m/*[24m, [4m(char[24m [4m*)0[24m, [4mchar[24m [4m*const[24m [4menvp[][24m [4m*/[24m);
+
+     [4mint[24m
+     [1mexeclp[0m([4mconst[24m [4mchar[24m [4m*file[24m, [4mconst[24m [4mchar[24m [4m*arg0[24m, [4m...[24m [4m/*[24m, [4m(char[24m [4m*)0[24m [4m*/[24m);
+
+     [4mint[24m
+     [1mexecv[0m([4mconst[24m [4mchar[24m [4m*path[24m, [4mchar[24m [4m*const[24m [4margv[][24m);
+
+     [4mint[24m
+     [1mexecvp[0m([4mconst[24m [4mchar[24m [4m*file[24m, [4mchar[24m [4m*const[24m [4margv[][24m);
+
+     [4mint[24m
+     [1mexecvP[0m([4mconst[24m [4mchar[24m [4m*file[24m, [4mconst[24m [4mchar[24m [4m*search_path[24m, [4mchar[24m [4m*const[24m [4margv[][24m);
+
+[1mDESCRIPTION[0m
+     The [1mexec[0m family of functions replaces the current process image with a new
+     process image.  The functions described in this manual page are front-ends
+     for the function execve(2).  (See the manual page for execve(2) for detailed
+     information about the replacement of the current process.)
+
+     The initial argument for these functions is the pathname of a file which is
+     to be executed.
+
+     The [4mconst[24m [4mchar[24m [4m*arg0[24m and subsequent ellipses in the [1mexecl[0m(), [1mexeclp[0m(), and
+     [1mexecle[0m() functions can be thought of as [4marg0[24m, [4marg1[24m, ..., [4margn[24m.  Together
+     they describe a list of one or more pointers to null-terminated strings that
+     represent the argument list available to the executed program.  The first
+:[K[K[?1l>[?1049lmageonlys@eduroam2-1-207-100.bulk.ucr.edu$ vim helloworld.cpp
+[?1049h[?1h=[1;47r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[47;1H"helloworld.cpp" [New File][>c[2;1H[94m~                                                                                         [3;1H~                                                                                         [4;1H~                                                                                         [5;1H~                                                                                         [6;1H~                                                                                         [7;1H~                                                                                         [8;1H~                                                                                         [9;1H~                                                                                         [10;1H~                                                                                         [11;1H~                                                                                         [12;1H~                                                                                         [13;1H~                                                                                         [14;1H~                                                                                         [15;1H~                                                                                         [16;1H~                                                                                         [17;1H~                                                                                         [18;1H~                                                                                         [19;1H~                                                                                         [20;1H~                                                                                         [21;1H~                                                                                         [22;1H~                                                                                         [23;1H~                                                                                         [24;1H~                                                                                         [25;1H~                                                                                         [26;1H~                                                                                         [27;1H~                                                                                         [28;1H~                                                                                         [29;1H~                                                                                         [30;1H~                                                                                         [31;1H~                                                                                         [32;1H~                                                                                         [33;1H~                                                                                         [34;1H~                                                                                         [35;1H~                                                                                         [36;1H~                                                                                         [37;1H~                                                                                         [38;1H~                                                                                         [39;1H~                                                                                         [40;1H~                                                                                         [41;1H~                                                                                         [42;1H~                                                                                         [43;1H~                                                                                         [44;1H~                                                                                         [45;1H~                                                                                         [46;1H~                                                                                         [1;1H[?12l[?25h[?25l[m[47;1H[1m-- INSERT --[m[47;13H[K[1;1H[?12l[?25h[?25lh[?12l[?25h[?25lhi[?12l[?25h[?25l [?12l[?25h[?25l t[?12l[?25h[?25lth[?12l[?25h[?25lhe[?12l[?25h[?25ler[?12l[?25h[?25lre[?12l[?25h[?25le![?12l[?25h[?25l!:[?12l[?25h[?25l[1;10H[K[1;10H[?12l[?25h[47;1H[K[1;9H[?25l[?12l[?25h[?25l[47;1H:[?12l[?25hw[?25l[47;2H[K[47;2H[?12l[?25hq[?25l[47;2H[K[47;2H[?12l[?25hq[?25l[97m[41mE37: No write since last change (add ! to override)[1;9H[?12l[?25h[?25l[m[47;1H[K[47;1H:[?12l[?25hwq[?25l"helloworld.cpp" [New] 1L, 10C written
+[?1l>[?12l[?25h[?1049lmageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	exec.script	src
+Makefile	bin		helloworld.cpp	tests
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm hellowrodl    orld.cpp
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ vim helloworld.cpp
+[?1049h[?1h=[1;47r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[47;1H"helloworld.cpp" [New File][>c[2;1H[94m~                                                                                         [3;1H~                                                                                         [4;1H~                                                                                         [5;1H~                                                                                         [6;1H~                                                                                         [7;1H~                                                                                         [8;1H~                                                                                         [9;1H~                                                                                         [10;1H~                                                                                         [11;1H~                                                                                         [12;1H~                                                                                         [13;1H~                                                                                         [14;1H~                                                                                         [15;1H~                                                                                         [16;1H~                                                                                         [17;1H~                                                                                         [18;1H~                                                                                         [19;1H~                                                                                         [20;1H~                                                                                         [21;1H~                                                                                         [22;1H~                                                                                         [23;1H~                                                                                         [24;1H~                                                                                         [25;1H~                                                                                         [26;1H~                                                                                         [27;1H~                                                                                         [28;1H~                                                                                         [29;1H~                                                                                         [30;1H~                                                                                         [31;1H~                                                                                         [32;1H~                                                                                         [33;1H~                                                                                         [34;1H~                                                                                         [35;1H~                                                                                         [36;1H~                                                                                         [37;1H~                                                                                         [38;1H~                                                                                         [39;1H~                                                                                         [40;1H~                                                                                         [41;1H~                                                                                         [42;1H~                                                                                         [43;1H~                                                                                         [44;1H~                                                                                         [45;1H~                                                                                         [46;1H~                                                                                         [1;1H[?12l[?25h[?25l[m[47;1H[K[47;1H:[?12l[?25h [1;1H[?25l[47;1H[97m[41mE348: No string under cursor[1;1H[?12l[?25h[?25l[m[47;1H[1m-- INSERT --[m[47;13H[K[1;1H[?12l[?25h[?25lI[?12l[?25h[?25lIn[?12l[?25h[?25l[1;2H[K[1;2H[?12l[?25h[?25l[1;1H[K[1;1H[?12l[?25h[?25l#[?12l[?25h[?25l#i[?12l[?25h[?25lin[?12l[?25h[?25lnc[?12l[?25h[?25lcl[?12l[?25h[?25l[1;5H[K[1;5H[?12l[?25h[?25l[1;4H[K[1;4H[?12l[?25h[?25l[1;3H[K[1;3H[?12l[?25h[?25l[1;2H[K[1;2H[?12l[?25h[?25l#i[?12l[?25h[?25lin[?12l[?25h[?25lnc[?12l[?25h[?25lcl[?12l[?25h[?25llu[?12l[?25h[?25lud[?12l[?25h[?25lde[?12l[?25h[?25l [?12l[?25h[?25l i[?12l[?25h[?25l[1;10H[K[1;10H[?12l[?25h[?25l <[?12l[?25h[?25l<i[?12l[?25h[?25lio[?12l[?25h[?25los[?12l[?25h[?25lst[?12l[?25h[?25ltr[?12l[?25h[?25lre[?12l[?25h[?25lea[?12l[?25h[?25lam[?12l[?25h[?25lm>[?12l[?25h[?25l[2;1H[K[2;1H[?12l[?25h[?25l[3;1H[K[3;1H[?12l[?25h[?25li[?12l[?25h[?25lin[?12l[?25h[?25lnt[?12l[?25h[?25l [?12l[?25h[?25l[?12l[?25h[?25l[3;3H[K[3;3H[?12l[?25h[?25l[3;2H[K[3;2H[?12l[?25h[?25l[3;1H[K[3;1H[?12l[?25h[?25lu[?12l[?25h[?25lus[?12l[?25h[?25lsi[?12l[?25h[?25lin[?12l[?25h[?25lng[?12l[?25h[?25l [?12l[?25h[?25l n[?12l[?25h[?25lna[?12l[?25h[?25lam[?12l[?25h[?25lme[?12l[?25h[?25les[?12l[?25h[?25lsp[?12l[?25h[?25lpa[?12l[?25h[?25lac[?12l[?25h[?25lce[?12l[?25h[?25l [?12l[?25h[?25l s[?12l[?25h[?25lst[?12l[?25h[?25ltd[?12l[?25h[?25ld;[?12l[?25h[?25l[4;1H[K[4;1H[?12l[?25h[?25l[5;1H[K[5;1H[?12l[?25h[?25lf[?12l[?25h[?25l[5;1H[K[5;1H[?12l[?25h[?25li[?12l[?25h[?25lin[?12l[?25h[?25lnt[?12l[?25h[?25l [?12l[?25h[?25l m[?12l[?25h[?25lma[?12l[?25h[?25lai[?12l[?25h[?25lin[?12l[?25h[?25ln([?12l[?25h[?25l[106m()[?12l[?25h[?25l[m();[?12l[?25h[?25l[106m()[m[5;11H[K[5;11H[?12l[?25h[?25l()P[?12l[?25h[?25l[106m()[m[5;11H[K[5;11H[?12l[?25h[?25l(){[?12l[?25h[?25l[6;1H[K[6;1H[?12l[?25h[?25l[7;1H[K[7;1H[?12l[?25h[?25l[8C[?12l[?25h[?25l c[?12l[?25h[?25lco[?12l[?25h[?25lou[?12l[?25h[?25lut[?12l[?25h[?25l [?12l[?25h[?25l <[?12l[?25h[?25l<<[?12l[?25h[?25l [?12l[?25h[?25l "[?12l[?25h[?25l"H[?12l[?25h[?25lHe[?12l[?25h[?25lel[?12l[?25h[?25lll[?12l[?25h[?25llo[?12l[?25h[?25low[?12l[?25h[?25l[7;23H[K[7;23H[?12l[?25h[?25l [?12l[?25h[?25l W[?12l[?25h[?25lWO[?12l[?25h[?25lOr[?12l[?25h[?25l[7;26H[K[7;26H[?12l[?25h[?25l[7;25H[K[7;25H[?12l[?25h[?25lWo[?12l[?25h[?25lor[?12l[?25h[?25lrl[?12l[?25h[?25lld[?12l[?25h[?25ld"[?12l[?25h[?25l [?12l[?25h[?25l[?12l[?25h[?25l"'[?12l[?25h[?25l [?12l[?25h[?25l[?12l[?25h[?25l[7;30H[K[7;30H[?12l[?25h[?25l [?12l[?25h[?25l <[?12l[?25h[?25l<<[?12l[?25h[?25l [?12l[?25h[?25l e[?12l[?25h[?25len[?12l[?25h[?25lnd[?12l[?25h[?25ldl[?12l[?25h[?25ll;[?12l[?25h[?25l[8;1H[K[8;1H[?12l[?25h[?25lr[?12l[?25h[?25lre[?12l[?25h[?25let[?12l[?25h[?25ltu[?12l[?25h[?25lur[?12l[?25h[?25lrn[?12l[?25h[?25l [?12l[?25h[?25l 0[?12l[?25h[?25l0;[?12l[?25h[?25l[9;1H[K[9;1H[?12l[?25h[?25l[5;11H[106m{[9;1H}[?12l[?25h[?25l[m[5;11H{[9;1H}[10;1H[K[10;1H[?12l[?25h[47;1H[K[10;1H[?25l[?12l[?25h[?25l[47;1H:[?12l[?25hwq[?25l"helloworld.cpp" [New] 10L, 101C written
+[?1l>[?12l[?25h[?1049lmageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	exec.script	src
+Makefile	bin		helloworld.cpp	tests
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ g++ hellow	 world.cpp
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	bin		helloworld.cpp	tests
+Makefile	a.out		exec.script	src
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ./a.out
+Hello World
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm helloworl	d.co pp
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ rm a.out
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ ls
+LICENSE		README.md	exec.script	tests
+Makefile	bin		src
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ make clean
+rm -rf bin
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
+Thank you for using the program.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
+Thank you for using the program.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
+Thank you for using the program.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
+Thank you for using the program.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
+Thank you for using the program.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exirt
+Unable to perform request.: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ eixt
+Unable to perform request.: No such file or directory
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
+Thank you for using the program.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ eixt   xit
+Thank you for using the program.
+mageonlys@eduroam2-1-207-100.bulk.ucr.edu$ exit
+Thank you for using the program.
+bash-3.2$ exit
+exit
+
+Script done on Tue Oct 21 23:34:24 2014
