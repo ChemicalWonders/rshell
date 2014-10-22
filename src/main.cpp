@@ -42,9 +42,7 @@ void changeToArray(char ** &commandList, char* commands, const char* parser){
         char* pkey = strtok(commands, parser);
 
         for (it = 0; pkey != NULL; ++it, pkey = strtok(NULL, parser)){
-                if(commandList != "#"){
-                        commandList[it] = pkey;
-                }
+
                 //cout << "CommandList@" << it << ": " << commandList[it] << endl;
         }
         //cout << "it is @ " << it << endl;
@@ -54,7 +52,8 @@ void changeToArray(char ** &commandList, char* commands, const char* parser){
 int main()
 {       
         string user_stream;
-        char * parsedString;
+        //char * parsedString = NULL;
+        //char * iterate = NULL;
         char * username = getlogin();
 
 
@@ -80,8 +79,20 @@ int main()
                 //Gets line for user stream.
                 getline(cin, user_stream);
 
+                int strlength = user_stream.length();
+                int hashpos = user_stream.find("#");
+
+                char parsedString[strlength];
+
+
                 //Parsing the string using strdup to change from const char* to char*
-                parsedString = strdup(user_stream.c_str());
+                strcpy(parsedString, user_stream.c_str());
+
+                parsedString[hashpos] = '\0';
+
+
+                
+
                 char ** commandstream = new char*[sizeof(parsedString)+1];
                 changeToArray(commandstream, parsedString, parr);
 
