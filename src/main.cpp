@@ -4,6 +4,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -79,7 +80,7 @@ int main()
 
                 if (user_stream == "exit"){
                         cout << "Thank you for using the program.\n";
-                        exit(0);
+                        exit(1);
                 }
 
                 int hashpos = user_stream.find('#');
