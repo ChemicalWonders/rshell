@@ -15,3 +15,4 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 * when you put a comment in the middle of the command, it won't show.
 * up arrow and down arrow does not show previous commands
 * echo with quotes don't work, my program only parses whitespace
+* changing directories does not work because it is a bash command
