@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 #include <stdio.h>
 
@@ -79,7 +80,7 @@ int main()
                 //Gets line for user stream.
                 getline(cin, user_stream);
 
-                int strlength = user_stream.length();
+                //int strlength = user_stream.length();
                 int hashpos = user_stream.find("#");
 
 
