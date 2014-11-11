@@ -3,12 +3,18 @@ opt:= -Wall -Werror -ansi -pedantic
 compiler := g++
 objdir := bin
 
-all: 
+all: bin rshell ls cp
+
+bin:
 	test -d $(objdir) || mkdir $(objdir)
+rshell: 
 	$(compiler) ./src/main.cpp $(opt) -o ./bin/rshell
 
-rshell:
-	$(compiler) ./src/main.cpp $(opt) -o ./bin/rshell
+ls:
+	$(compiler) ./src/ls.cpp   $(opt) -o ./bin/ls
+
+cp:
+	$(compiler) ./src/cp.cpp   $(opt) -o ./bin/cp
 
 clean:
 	rm -rf $(objdir)

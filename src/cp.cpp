@@ -29,7 +29,7 @@ void copyandpaste(int argc, char* argv[]){
           perror("fd2");
           exit(1);
         }
-        while(num = read(fdi, buf, BUFSIZ)){
+        while((num = read(fdi, buf, BUFSIZ))){
           if(num == -1){
              perror("read");
           }
@@ -95,7 +95,7 @@ int main( int argc, char* argv[])
           perror("fd2");
           exit(1);
         }
-        while(num2 = read(fdi2, buf2, 1)){
+        while((num2 = read(fdi2, buf2, 1))){
           if(num2 == -1){
              perror("read");
           }
@@ -125,7 +125,7 @@ int main( int argc, char* argv[])
           perror("fd2");
           exit(1);
         }
-        while(num = read(fdi, buf, BUFSIZ)){
+        while((num = read(fdi, buf, BUFSIZ))){
           if(num == -1){
              perror("read");
           }
