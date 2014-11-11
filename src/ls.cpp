@@ -12,7 +12,8 @@ int main()
     const char *dirName = ".";
     DIR *dirp = opendir(dirName);
     dirent *direntp;
-    while ((direntp = readdir(dirp)))
+
+    while ((direntp = readdir(dirp)) != NULL)
         cout << direntp->d_name << endl;
         // use stat here to find attributes of file
     closedir(dirp);
