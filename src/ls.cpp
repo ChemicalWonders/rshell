@@ -8,11 +8,11 @@
 using namespace std;
 
 //this structure is used to store the elements name with absolute paths
-struct direntry(*head=NULL)
+struct direntry
 {
 	char *dir_name;
 	struct direntry *next;
-};
+}*head=NULL;
 
 int main()
 {
