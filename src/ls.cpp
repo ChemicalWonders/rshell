@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    char *dirName = ".";
+    const char *dirName = ".";
     DIR *dirp = opendir(dirName);
     dirent *direntp;
 
