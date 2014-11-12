@@ -19,8 +19,11 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 * sometimes the exit command needs to be entered a few times before exiting.
 * tabbing does not autocomplete the file or command name.
 
-###ls: Bugs
+### ls: Bugs
 
 * When you try a different path, -R does not work.
 * Spacing is different from original shell
 * Colors are weird, but background color is not working
+* When you put option flags in certain areas, it will work, but does not give desired output
+* path name is output on the top when you use a different directory.
+
