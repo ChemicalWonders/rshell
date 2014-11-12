@@ -39,89 +39,7 @@ char file_name[1000];
 void long_listing(char* fname);
 int flag=0;
 void ls_recursive(char* fname);
-/*
-//for curser's
-struct cur_entry
-{
-	char *dir_name;
-	int flag;
-	struct cur_entry *next;
-}*start=NULL;
-//This will push all the required data into this data structure..!
-void insert_cur(char fname[1000],int flag)
-{
-	if(start!=NULL)
-  	{
-    		
-		struct cur_entry (*tmp)=start;
-		while(tmp->next!=NULL)
-     			 tmp=tmp->next;
-		//printf("here \n");
-		struct cur_entry *temp = (struct cur_entry *)malloc(sizeof(struct cur_entry));
-   		 temp->dir_name=(char *)malloc((strlen(fname)+1)*sizeof(char));
-		 temp->flag=flag;
-   		 strcpy(temp->dir_name,fname);
-   		 temp->next = NULL;
-   		 tmp->next=temp;
-  	}
-  	else
-  	{
-   		 //printf("first time\n");
-		 start =(struct cur_entry *)malloc(sizeof(struct cur_entry)) ;
-   		 start->dir_name=(char *)malloc((strlen(fname)+1)*sizeof(char));
-   		 strcpy(start->dir_name,fname);
-	   	 start->flag=flag;	 
-		 start->next = NULL;
-  	}
-}
-void print_cursor()
-{
-	int i=0,j=0,k=0;
-	int row,col;
-	initscr();
-	start_color();	
-	j=num_entry_global_lsbasic/3;
-	getmaxyx(stdscr,row,col);
-	//int t=3;
-	if(num_entry_global_lsbasic!=0)
-		for(i=0;i<2;i++)
-			for(k=0;k<=(j+1);k++)
-			{	
-				if(start->flag)
-				{				
-					
-					if(!att)					
-					{
-						init_pair(1, COLOR_BLUE,COLOR_BLACK);		
-						attron(COLOR_PAIR(1));	
-						mvprintw(k,(0+i*(col/2)),"%s",start->dir_name);
-						attroff(COLOR_PAIR(1));
-					}else
-					{
-						printf("%s ",start->dir_name);
-					}			
-					
-				}				
-				else
-				{					
-					if(!att)
-						mvprintw(k,(0+i*(col/2)),"%s",start->dir_name);
-					else
-						printf("%s ",start->dir_name);					
-				}	//mvprintw(k,(0+i*(col/3)),"%s",start->dir_name);
-				refresh();
-				//printf("%s ",start->dir_name);				
-				start=start->next;
-				if(start==NULL)
-				{	
-					getch();
-					refresh();
-					endwin();						
-					return 0;
-				}
-			}
-}
-*/
+
 
 //this structure is used to store the elements name with absolute paths
 struct direntry
@@ -610,7 +528,7 @@ int main(int argc,char *argv[])
 	filename = getcwd(filename, 1000);
 	if(filename==NULL)
 	{			
-		printf("Error is Path\n");
+		printf("Error in $PATH\n");
 		return 0;	
 	}
 	if(argc==1)
@@ -657,7 +575,7 @@ int main(int argc,char *argv[])
 		}
 		else if(argv[i][0]!='/') 
 		 {
-			printf("My Code does support your Functionality..Iam Sorry.\n");
+			printf("does not work\n");
 			return 1;
 		}
 		else
