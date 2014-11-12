@@ -3,7 +3,7 @@ opt:= -Wall -Werror -ansi -pedantic
 compiler := g++
 objdir := bin
 
-all: bin rshell ls # cp
+all: bin rshell ls  cp
 
 bin:
 	test -d $(objdir) || mkdir $(objdir)
