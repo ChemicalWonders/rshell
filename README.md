@@ -8,7 +8,7 @@ If there are any concerns with the shell, please let me know.
 ### Licensing
 I am licensed under the MIT License. If you have any use for my code, then I just ask that you please credit me for what you do. If you are found to copy my code, and claim it as yourself, your school might take action against you. I will not be found liable for anything that happens.
 
-###Bugs
+###RSHELL: Bugs
 
 * connectors (|| and &&) do not work at all
 * when you put a comment in the middle of the command, it won't show.
@@ -18,3 +18,9 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 * typing 'what' in the the terminal make it do something weird. not sure what's going on
 * sometimes the exit command needs to be entered a few times before exiting.
 * tabbing does not autocomplete the file or command name.
+
+###ls: Bugs
+
+* When you try a different path, -R does not work.
+* Spacing is different from original shell
+* Colors are weird, but background color is not working

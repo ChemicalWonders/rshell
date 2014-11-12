@@ -14,8 +14,8 @@ ls:
 	$(compiler) ./src/ls.cpp   $(opt) -o ./bin/ls
 
 #when cp is added, I will enable
-#cp:
-#	$(compiler) ./src/cp.cpp   $(opt) -o ./bin/cp
+cp:
+	$(compiler) ./src/cp.cpp   $(opt) -o ./bin/cp
 
 clean:
 	rm -rf $(objdir)
