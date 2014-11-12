@@ -29,15 +29,18 @@ void copyandpaste(int argc, char* argv[]){
           perror("fd2");
           exit(1);
         }
-        while((num = read(fdi, buf, BUFSIZ))){
-          if(num == -1){
-             perror("read");
-          }
-          int alpha = write(fdo, buf, num);
-          if (alpha == -1){
-             perror("write");
-          }
-        }
+  while((num = read(fdi, buf, BUFSIZ))){
+      if(num == -1){
+          perror("read");
+      }
+      int alpha = write(fdo, buf, num);
+      if (alpha == -1){
+          perror("write");
+      }
+  }
+  int cdir = close(fdo);
+  if (cdir < 0)
+    perror("close");
 }
 
 int main( int argc, char* argv[])
