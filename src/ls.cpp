@@ -137,9 +137,9 @@ int sortsize(const struct dirent **d1, const struct dirent **d2)
 void ls(char* filename)
 {
 	struct dirent **namelist;
-	long long int num_entries;
+	int num_entries;
 	char *name=(char *)malloc(1000*sizeof(char));
-	int i=0,j=0;
+	int i=0;
 	
 	if(strcmp(filename,"/")!=0)	
 	{	
@@ -326,7 +326,7 @@ void ls(char* filename)
 void add_intolist(char *filename)
 {
 	struct dirent **namelist;
-	long long int num_entries;
+	int num_entries;
 	char *name=(char *)malloc(1000*sizeof(char));
 	strcpy(name,filename);
 	strcpy(file_name,name);
@@ -358,8 +358,7 @@ void add_intolist(char *filename)
 void long_listing(char* fname)
 {
   	struct stat stat_temp;
-	int flag;
-	int i;  	
+	int flag;	
 	if(lstat(fname,&stat_temp)==-1)
   	{
     		printf("error in stat funtion %s\n",fname);
