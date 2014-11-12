@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void copyandpaste(int argc, char* argv[]){
+void copyandpaste(char* argv[]){
 	char* buf = new char [BUFSIZ];
 	int fdi = open(argv[1], O_RDONLY);
         if (access (argv[2], F_OK) != -1){
@@ -52,7 +52,7 @@ int main( int argc, char* argv[])
     double bTime;
 
     if (argc == 3){
-	copyandpaste(argc, argv);
+	copyandpaste(argv);
     }
 
     else if (argc == 4){

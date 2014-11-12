@@ -82,7 +82,6 @@ int main()
                         cout << "Thank you for using the program.\n";
                         exit(1);
                 }
-
                 int hashpos = user_stream.find('#');
                 
                 if (hashpos != -1){
@@ -91,16 +90,13 @@ int main()
 
                 //Parsing the string using strdup to change from const char* to char*
                 parsedString = strdup(user_stream.c_str());
-
-		char ** command = new char *[sizeof(parsedString)+1];
-
+		        char ** command = new char *[sizeof(parsedString)+1];
                 command = changeToArray(command, parsedString, parr);
-
                 int pid = fork();
 
                 if (pid == -1){
                 	perror("Fork failed");
-		}
+		        }
                 else if (pid == 0){
 			
                         if(execvp( (const char*) command [0] , (char* const*) command) == -1){
