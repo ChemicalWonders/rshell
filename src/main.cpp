@@ -22,6 +22,8 @@ int sizefunc(char* commandstream, const char* delim){
 
 }
 */
+// NEED TO CHECK MY MAC AND SEE IF THE CODE IS ON THERE.
+// OTHERWISE I MIGHT BE SCREWED.
 
 bool checkforexit(char ** &commandList, char* commands, const char* pk){
         int c = 0;
