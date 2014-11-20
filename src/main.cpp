@@ -9,6 +9,7 @@
 using namespace std;
 
 
+<<<<<<< HEAD
 // Changes userstream to an array to be parsed
 char ** changeToArray(char ** commandList, char* commands, const char* parser);
 //Checks for username and hostname
@@ -17,6 +18,23 @@ void setUsernameHostname();
 void removeComment(string &);
 //Exit program
 void exitProgram(string);
+=======
+/* 
+// Deprecated function call.
+int sizefunc(char* commandstream, const char* delim){
+        int i;
+        char* p = strtok(commandstream, delim);
+
+        for (i = 0; p!= NULL; p = strtok(NULL, delim) ){
+                ++i;
+        }
+        return (i+1);
+
+}
+*/
+// NEED TO CHECK MY MAC AND SEE IF THE CODE IS ON THERE.
+// OTHERWISE I MIGHT BE SCREWED.
+>>>>>>> 2c13202acefe00dbac475ad1c64a3cd873b9bac5
 
 
 char ** changeToArray(char ** commandList, char* commands, const char* parser){

@@ -45,7 +45,7 @@ void copyandpaste(char* argv[]){
 
 int main( int argc, char* argv[])
 {
-    char method;
+    char method = 0;
     Timer t;
     double eTime;
     double aTime;
