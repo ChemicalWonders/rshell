@@ -1,0 +1,189 @@
+Script started on Thu 20 Nov 2014 08:16:51 PM PST
+~
+kchan039@hammer $ cs100
+[0;91m
+===============================================================================
+|                                                                             |
+| You have enabled settings specific for cs100.                               |
+|                                                                             |
+===============================================================================
+[0m
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~[0;95m [0;36m$[0m cd Documents/
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents[0;95m [0;36m$[0m ls
+cs100lab  MATLAB  myCString  rshell  ucr-cs100
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents[0;95m [0;36m$[0m cd ucr-cs100/
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/ucr-cs100[0;95m (cs100-2014fall) [0;36m$[0m ls
+assignments  GRADES.md	gradetmp  lecture  LICENSE  people  README.md  scripts	tutorials
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/ucr-cs100[0;95m (cs100-2014fall) [0;36m$[0m cd ..
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents[0;95m [0;36m$[0m ls
+cs100lab  MATLAB  myCString  rshell  ucr-cs100
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents[0;95m [0;36m$[0m cd rshell
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m ls
+LICENSE  Makefile  README.md  src  tests
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m cd[K[Kmake
+test -d bin || mkdir bin
+g++ ./src/main.cpp -Wall -Werror -ansi -pedantic -o ./bin/rshell
+g++ ./src/ls.cpp   -Wall -Werror -ansi -pedantic -o ./bin/ls
+g++ ./src/cp.cpp   -Wall -Werror -ansi -pedantic -o ./bin/cp
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m bin/rshell
+kchan039@hammer.cs.ucr.edu$ ls
+bin  LICENSE  Makefile	README.md  src	tests
+kchan039@hammer.cs.ucr.edu$ ls -a \ < l currentDirectlry   ory
+fd.open<: No such file or directory
+fd.dup2<: Bad file descriptor
+.  ..  bin  .git  .gitattributes  .gitignore  LICENSE  Makefile  README.md  src  tests
+kchan039@hammer.cs.ucr.edu$ ls
+bin  LICENSE  Makefile	README.md  src	tests
+kchan039@hammer.cs.ucr.edu$ ls =a  -a | currentDirectory
+exec.execvp: No such file or directory
+kchan039@hammer.cs.ucr.edu$ ls
+bin  LICENSE  Makefile	README.md  src	tests
+kchan039@hammer.cs.ucr.edu$ ls -a > currentDirectory
+kchan039@hammer.cs.ucr.edu$ ls
+bin  currentDirectory  LICENSE	Makefile  README.md  src  tests
+kchan039@hammer.cs.ucr.edu$ cat C currentDirectory
+.
+..
+bin
+currentDirectory
+.git
+.gitattributes
+.gitignore
+LICENSE
+Makefile
+README.md
+src
+tests
+kchan039@hammer.cs.ucr.edu$ grep Makefile > crrue    urrentDirectory
+^C
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m ls
+bin  currentDirectory  LICENSE	Makefile  README.md  src  tests
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m gre[K[K[Kps aux | grep kchan039
+root     27599  0.0  0.0 104788  5092 ?        Ss   20:16   0:00 sshd: kchan039 [priv]
+kchan039 27632  0.0  0.0 104788  2360 ?        S    20:16   0:00 sshd: kchan039@pts/61
+kchan039 27633  0.0  0.0 112576  1912 pts/61   Ss   20:16   0:00 -bash
+kchan039 27670  0.0  0.0 107128   752 pts/61   S+   20:16   0:00 script -q -c env PS1='\[\e[s%%%%%%%%%%\e[u\]\[\e[0;32m\]\u\[\e[0;36m\]@\[\e[0;32m\]cs100\[\e[0;36m\]:\[\e[0;32m\]\w\[\e[0;95m\]$(__git_ps1) \[\e[0;36m\]$\[\e[0m\] ' bash --norc -i /usr/csshare/cs100/log/gdb/shell-kchan039-2014-11-20-20-16-17.SbtNjfQYP
+kchan039 27685  0.0  0.0 107132   444 pts/61   S+   20:16   0:00 script -q -c env PS1='\[\e[s%%%%%%%%%%\e[u\]\[\e[0;32m\]\u\[\e[0;36m\]@\[\e[0;32m\]cs100\[\e[0;36m\]:\[\e[0;32m\]\w\[\e[0;95m\]$(__git_ps1) \[\e[0;36m\]$\[\e[0m\] ' bash --norc -i /usr/csshare/cs100/log/gdb/shell-kchan039-2014-11-20-20-16-17.SbtNjfQYP
+kchan039 27686  0.0  0.0 112688  1876 pts/62   Ss   20:16   0:00 bash --norc -i
+kchan039 27818  0.0  0.0 107128   804 pts/62   S+   20:16   0:00 script piping.test
+kchan039 27820  0.0  0.0 107160   408 pts/62   S+   20:16   0:00 script piping.test
+kchan039 27821  0.0  0.0 112584  1844 pts/63   Ss   20:16   0:00 bash -i
+kchan039 27824  0.0  0.0 107128   752 pts/63   S+   20:16   0:00 script -q -c env PS1='\[\e[s%%%%%%%%%%\e[u\]\[\e[0;32m\]\u\[\e[0;36m\]@\[\e[0;32m\]cs100\[\e[0;36m\]:\[\e[0;32m\]\w\[\e[0;95m\]$(__git_ps1) \[\e[0;36m\]$\[\e[0m\] ' bash --norc -i /usr/csshare/cs100/log/gdb/shell-kchan039-2014-11-20-20-16-56.TvB8kU3JW
+kchan039 27840  0.0  0.0 107132   444 pts/63   S+   20:16   0:00 script -q -c env PS1='\[\e[s%%%%%%%%%%\e[u\]\[\e[0;32m\]\u\[\e[0;36m\]@\[\e[0;32m\]cs100\[\e[0;36m\]:\[\e[0;32m\]\w\[\e[0;95m\]$(__git_ps1) \[\e[0;36m\]$\[\e[0m\] ' bash --norc -i /usr/csshare/cs100/log/gdb/shell-kchan039-2014-11-20-20-16-56.TvB8kU3JW
+kchan039 27841  0.0  0.0 112692  1904 pts/64   Ss   20:16   0:00 bash --norc -i
+kchan039 28192  6.0  0.0 114484  1276 pts/64   R+   20:18   0:00 ps aux
+kchan039 28193  0.0  0.0 103264   848 pts/64   S+   20:18   0:00 grep kchan039
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m ls
+bin  currentDirectory  LICENSE	Makefile  README.md  src  tests
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m cd [K[K[Kcat C[KcurrentDirectory 
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m bin/rshell
+kchan039@hammer.cs.ucr.edu$ ps aux | grea p kchan039
+^C
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m bin/rshell
+kchan039@hammer.cs.ucr.edu$ top   grep kchan039
+kchan039
+kchan039
+^C
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m bin/rshell
+kchan039@hammer.cs.ucr.edu$ ps  cat < existingInputFile | tr A-Z a-z | tee newOutputFile1 | tr a-z A-Z > newOutputFile2 &
+cat: <: No such file or directory
+cat: existingInputFile: No such file or directory
+kchan039@hammer.cs.ucr.edu$ ls
+kchan039@hammer.cs.ucr.edu$ bin  currentDirectory  LICENSE	Makefile  newOutputFile1  newOutputFile2  README.md  src  tests
+cd  
+kchan039@hammer.cs.ucr.edu$ cat new	OutputFile1
+kchan039@hammer.cs.ucr.edu$ cat newOutputFile 2  2
+kchan039@hammer.cs.ucr.edu$ cat < README.md | tr A-Z a-z | tee newOutputFile2 1 | tr a-z A-z Z > newOutputFile2 * &
+cat: <: No such file or directory
+kchan039@hammer.cs.ucr.edu$ ls
+kchan039@hammer.cs.ucr.edu$ bin  currentDirectory  LICENSE	Makefile  newOutputFile1  newOutputFile2  README.md  src  tests
+
+kchan039@hammer.cs.ucr.edu$ cat newOutputfil   Fil1 e1
+kchan039@hammer.cs.ucr.edu$ ### rshell 
+
+### created for cs 100 at uc riverside
+
+this is a basic shell written in c++ to help us understand how the shell works.
+if there are any concerns with the shell, please let me know.
+
+### licensing
+i am licensed under the mit license. if you have any use for my code, then i just ask that you please credit me for what you do. if you are found to copy my code, and claim it as yourself, your school might take action against you. i will not be found liable for anything that happens.
+
+###rshell: bugs
+
+* connectors (|| and &&) do not work at all
+* when you put a comment in the middle of the command, it will deletes everything from that comment.
+* up arrow and down arrow does not show previous commands
+* echo with quotes work, but the include the quotes.
+* changing directories does not work because it is a built in bash
+* tabbing does not autocomplete the file or command name
+* going up and down with arrow keys don't work 
+
+### ls: bugs
+
+* when you try a different path, -r does not work.
+* spacing is different from original shell
+* colors are weird, but background color is not working
+* when you put option flags in certain areas, it will work, but does not give desired output
+* path name is output on the top when you use a different directory.
+
+
+###rshell with piping: bugs
+* sometimes you need to press enter once to regain the shell, flushing problem
+* spacing is not always correct when the first bug occurs
+* some built in commands don't always work, i.e. history
+* when you enter |, < , >, or <<, you need to make sure that each of them is entered a space inbetween
+other wise the program thinks that it's part of the last argument.
+cat   
+kchan039@hammer.cs.ucr.edu$ cat newOutputFile  2
+kchan039@hammer.cs.ucr.edu$ ### RSHELL 
+
+### CREATED FOR CS 100 AT UC RIVERSIDE
+
+THIS IS A BASIC SHELL WRITTEN IN C++ TO HELP US UNDERSTAND HOW THE SHELL WORKS.
+IF THERE ARE ANY CONCERNS WITH THE SHELL, PLEASE LET ME KNOW.
+
+### LICENSING
+I AM LICENSED UNDER THE MIT LICENSE. IF YOU HAVE ANY USE FOR MY CODE, THEN I JUST ASK THAT YOU PLEASE CREDIT ME FOR WHAT YOU DO. IF YOU ARE FOUND TO COPY MY CODE, AND CLAIM IT AS YOURSELF, YOUR SCHOOL MIGHT TAKE ACTION AGAINST YOU. I WILL NOT BE FOUND LIABLE FOR ANYTHING THAT HAPPENS.
+
+###RSHELL: BUGS
+
+* CONNECTORS (|| AND &&) DO NOT WORK AT ALL
+* WHEN YOU PUT A COMMENT IN THE MIDDLE OF THE COMMAND, IT WILL DELETES EVERYTHING FROM THAT COMMENT.
+* UP ARROW AND DOWN ARROW DOES NOT SHOW PREVIOUS COMMANDS
+* ECHO WITH QUOTES WORK, BUT THE INCLUDE THE QUOTES.
+* CHANGING DIRECTORIES DOES NOT WORK BECAUSE IT IS A BUILT IN BASH
+* TABBING DOES NOT AUTOCOMPLETE THE FILE OR COMMAND NAME
+* GOING UP AND DOWN WITH ARROW KEYS DON'T WORK 
+
+### LS: BUGS
+
+* WHEN YOU TRY A DIFFERENT PATH, -R DOES NOT WORK.
+* SPACING IS DIFFERENT FROM ORIGINAL SHELL
+* COLORS ARE WEIRD, BUT BACKGROUND COLOR IS NOT WORKING
+* WHEN YOU PUT OPTION FLAGS IN CERTAIN AREAS, IT WILL WORK, BUT DOES NOT GIVE DESIRED OUTPUT
+* PATH NAME IS OUTPUT ON THE TOP WHEN YOU USE A DIFFERENT DIRECTORY.
+
+
+###RSHELL WITH PIPING: BUGS
+* SOMETIMES YOU NEED TO PRESS ENTER ONCE TO REGAIN THE SHELL, FLUSHING PROBLEM
+* SPACING IS NOT ALWAYS CORRECT WHEN THE FIRST BUG OCCURS
+* SOME BUILT IN COMMANDS DON'T ALWAYS WORK, I.E. HISTORY
+* WHEN YOU ENTER |, < , >, OR <<, YOU NEED TO MAKE SURE THAT EACH OF THEM IS ENTERED A SPACE INBETWEEN
+OTHER WISE THE PROGRAM THINKS THAT IT'S PART OF THE LAST ARGUMENT.
+
+kchan039@hammer.cs.ucr.edu$ 
+kchan039@hammer.cs.ucr.edu$ echo helloworld | gat   cat
+kchan039@hammer.cs.ucr.edu$ helloworld
+
+kchan039@hammer.cs.ucr.edu$ ell   helloworld
+kchan039@hammer.cs.ucr.edu$ exec.execvp: No such file or directory
+e 
+kchan039@hammer.cs.ucr.edu$ exit
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m exit
+exit
+~
+kchan039@hammer $ exit
+exit
+
+Script done on Thu 20 Nov 2014 08:23:13 PM PST

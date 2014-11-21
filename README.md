@@ -33,3 +33,7 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 * Some built in commands don't always work, i.e. history
 * when you enter |, < , >, or <<, you need to make sure that each of them is entered a space inbetween
 other wise the program thinks that it's part of the last argument.
+* some commands will stall on the hammer server, if you try ps aux | grep kchan039, it will work on my copy of linux, but it stalls on hammer.
+* when you try running commands, sometimes, an extra enter is required for the commandline to print again. I think it's a problem with my program.
+* when you run rshell, it will output a file error with <.
+

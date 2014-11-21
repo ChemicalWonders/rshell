@@ -49,7 +49,6 @@ void insert(char fname[1000])
 		struct direntry (*tmp)=head;
 		while(tmp->next!=NULL)
      			 tmp=tmp->next;
-		//printf("here \n");
 		struct direntry *temp = (struct direntry *)malloc(sizeof(struct direntry));
    		 temp->dir_name=(char *)malloc((strlen(fname)+1)*sizeof(char));
    		 strcpy(temp->dir_name,fname);
@@ -58,7 +57,6 @@ void insert(char fname[1000])
   	}
   	else
   	{
-   		 //printf("first time\n");
 		 head =(struct direntry *)malloc(sizeof(struct direntry)) ;
    		 head->dir_name=(char *)malloc((strlen(fname)+1)*sizeof(char));
    		 strcpy(head->dir_name,fname);
@@ -153,7 +151,7 @@ void ls(char* filename)
 	num_entries=scandir(name,&namelist,0,alpha_sort);
 	if(num_entries<0)
 	{
-      	printf("Could not scan directory %s\n",name);
+		perror("scandir");
 		return;
 	}
 
