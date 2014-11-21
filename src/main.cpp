@@ -5,54 +5,32 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <errno.h>
 
 using namespace std;
 
-
-<<<<<<< HEAD
-// Changes userstream to an array to be parsed
-char ** changeToArray(char ** commandList, char* commands, const char* parser);
 //Checks for username and hostname
 void setUsernameHostname();
-// Finds and erases something if needed to be
+// Finds and erases everything past the comment
 void removeComment(string &);
 //Exit program
-void exitProgram(string);
-=======
-/* 
-// Deprecated function call.
-int sizefunc(char* commandstream, const char* delim){
-        int i;
-        char* p = strtok(commandstream, delim);
+void exitProgram(char stream []);
+// Parses, and references the amount of commands
+int changeToArray(char ** commandList, char* commands, bool& emptyinput);
 
-        for (i = 0; p!= NULL; p = strtok(NULL, delim) ){
-                ++i;
-        }
-        return (i+1);
+bool background(int num, char ** commandList, bool emptyUI);
 
-}
-*/
-// NEED TO CHECK MY MAC AND SEE IF THE CODE IS ON THERE.
-// OTHERWISE I MIGHT BE SCREWED.
->>>>>>> 2c13202acefe00dbac475ad1c64a3cd873b9bac5
+void cleanpipe(char** commandList, bool background);
 
+void executeWpipe(char** part1, char** part2, bool background);
 
-char ** changeToArray(char ** commandList, char* commands, const char* parser){
-        int it = 0;
-        char* pkey = strtok(commands, parser);
+void fileDuplicate(char ** commandList);
+// Old execute - execvp + wait with background process
+void execute(char ** commandList, bool backproc);
 
-        for (it = 0; pkey != NULL; ++it, pkey = strtok(NULL, parser)){
-		commandList[it] = pkey;
-
-                //cout << "CommandList@" << it << ": " << commandList[it] << endl;
-        }
-        //cout << "it is @ " << it << endl;
-        commandList[it] = NULL;
-        return commandList;
-}
-
-void setUsernameHostname(){
-
+void setUsernameHostname()
+{
     char * username = getlogin();
     if (username == NULL){
         perror("getlogin");
@@ -68,80 +46,259 @@ void setUsernameHostname(){
     cout << "$ ";
 }
 
-void removeComment(string &stream){
+void removecomment(string &stream)
+{
     int hashpos = stream.find('#');
 
     //Check for comments, and removes anything past #
     if (hashpos != -1){
         stream.erase(hashpos);
     }
-
 }
 
-void exitProgram(string stream){
-    int exitpos = stream.find("exit");
+void exitprogram(char stream[])
+{
+    if(!strcmp(stream, "exit"))
+        exit(1);
+}
 
-    // Checks for exit word, and exits program if found
-    if (exitpos != -1){
-        exit(0);
+int changeToArray(char ** commandList, char* command, bool& emptyinput)
+{
+    int argnum = 0;
+    commandList[argnum] = strtok(command," \n\t");
+
+    while(commandList[argnum] != NULL)
+    {
+        argnum++;
+        commandList[argnum] = strtok(NULL, " \n\t");
+    }
+    return argnum;
+}
+
+void cleanpipe(char ** commandList, bool background)
+{
+    bool pipe = false;
+    int pipeloc = 0;
+
+    char** part1;
+    part1 = new char*[50];
+    char** part2;
+    part2 = new char *[50];
+
+    for(int i=0; commandList[i] != '\0';i++)
+    {
+        if(!strcmp(commandList[i], "|"))
+        {
+            pipe = true;
+            pipeloc = i;
+            break; 
+        }
+    }
+
+    if(pipe)
+    {
+        for(int i=0; i<pipeloc; i++)
+            part1[i] = commandList[i];
+
+        int pt2ind = 0;
+        for(int i=pipeloc+1; commandList[i] != '\0'; i++)
+        {
+            part2[pt2ind] = commandList[i];
+            pt2ind++;
+        }
+        part1[pipeloc] = NULL;
+        part2[pt2ind] = NULL;
+
+        executeWpipe(part1,part2,background);
+    }
+    else//it's a regular command, no pipe
+        execute(commandList,background);
+
+    delete[] part1;
+    delete[] part2;
+}
+
+void executeWpipe(char** part1, char** part2, bool background)
+{
+    int fd[2];
+    if(pipe(fd) == -1)
+        perror("execpipe.pipe");
+    
+    int pid = fork();
+    if(pid == -1)
+    {
+        perror("execpipe.close");
+    }
+    else if(pid == 0)
+    {
+        //write to pipe 
+        if(-1 == dup2(fd[1],1))
+            perror("execpipe.dup2");
+        if(-1 == close(fd[0]))
+            perror("execpipe.close");
+        if(-1 == execvp(part1[0], part1))
+        {
+            perror("execpipe.execvp");
+        }
+        exit(1);
+    }
+    //read from pipe
+
+    int savestdin;
+    if(-1 == (savestdin = dup(0)))//need to restore later or infinite loop
+        perror("execpipe.dup");
+
+    if(-1 == dup2(fd[0],0))
+        perror("execpipe.dup2");
+    if(-1 == close(fd[1]))
+        perror("execpipe.close");
+
+    if(-1 == wait(0))
+        perror("execpipe.wait");
+
+
+    cleanpipe(part2,background);//in order to chain multiple pipes you have to check again if you have a pipe in the second half
+
+    if(dup2(savestdin,0) == -1)
+        perror("fd.dup2>>");
+
+    fflush(NULL);
+}
+
+bool background(int num, char ** commandList, bool emptyUI)
+{
+    bool backproc = false;
+    //check for background processes
+    if(num > 0) 
+        --num;
+    // Checks for string comparison to & and tries to find it.
+    if(!emptyUI && !strcmp(commandList[num],"&"))
+    {
+        backproc = true;
+        commandList[num] = NULL;
+    }
+    else if(!emptyUI)
+    {
+        char* copy = commandList[num];
+        int len = strlen(commandList[num]) - 1;
+        if(copy[len] == '&') 
+        {
+            backproc = true;
+            copy[len] = '\0';
+            commandList[num] = copy;
+        }
+    }
+    return backproc;
+}
+
+void fileDuplicate(char ** commandList)
+{
+    for(int i = 0 ; commandList[i] != '\0'; ++i)
+    {
+        int fd = 0;
+        if(!strcmp(commandList[i], ">"))
+        {
+            commandList[i] = NULL;
+            if((fd = open(commandList[i + 1], O_TRUNC | O_WRONLY | O_CREAT, 0666 )) == -1)
+                perror("fd.open>");
+
+            if(dup2(fd, 1) == -1)
+                perror("fd.dup2>");
+
+            break;
+        }
+
+        else if(!strcmp(commandList[i], ">>"))
+        {
+            commandList[i] = NULL;
+            if((open(commandList[i + 1], O_WRONLY| O_CREAT | O_APPEND, 0666 )) == -1)
+                perror("fd.open>>");
+
+            if(dup2(fd, 1) == -1)
+                perror("fd.dup2>>");
+
+            break;
+        }
+
+        else if(!strcmp(commandList[i], "<"))
+        {
+            commandList[i] = NULL;
+            if((fd = open(commandList[i+1], O_RDONLY )) == -1)
+                perror("fd.open<");
+
+            if(dup2(fd, 0) == -1)
+                perror("fd.dup2<");
+
+            break;
+        }
     }
 }
 
+void execute(char ** commandList, bool backproc)
+{
+    int pid = fork();
+
+    if(pid == -1)
+        perror("exec.fork");
+
+    else if(pid == 0)
+    {
+        fileDuplicate(commandList);
+
+        if(execvp(commandList[0], commandList) == -1)
+            perror("exec.execvp");
+
+        exit(1);
+    }
+    if(!backproc)
+        if(wait(0) == -1) 
+            perror("exec.wait");
+}
+
 int main()
-{       
-        string user_stream;
-        char * parsedString = NULL;
+{
 
-        const char * parr = " ";
-        //const char * andL = "&&";
-        //const char * orL =  "||";
-        //const char * semiL = ";";
+    //Introductory Message to make sure shell is running.
+    //cout << "Hello, and welcome to Kevin's shell." << endl;
+    //Main function is all full of functions. yay
 
+    while(1)
+    {
+        // Initalized Variables for everything to work.
+        char userInput[1000];
+        char ** commandList = new char* [50];
+        string commands;
+        bool emptyUI = false;
+        bool backproc = false;
 
+        // Sets Username and Hostname if possible
+        setUsernameHostname();
 
-        //Introductory Message to make sure shell is running.
-        //cout << "Hello, and welcome to Kevin's shell." << endl;
+        // getline returns string, so commands is set to a string
+        getline(cin, commands);
+        removecomment(commands);
+        
+        //changes commands into a cstring then copies into userInput
+        strcpy(userInput, commands.c_str());
 
-        while(1){
-            // Sets Username and Hostname if possible
-            setUsernameHostname();
+        // Checks for exit, if exit exists, then exit the program
+        exitprogram(userInput);
 
-            //Gets line for user stream.
-            getline(cin, user_stream);
+        //takes care if user pressed enter
+        if(!strcmp(userInput,""))
+            emptyUI = true;
+        
+        //parsing input
+        int parlist = changeToArray(commandList, userInput, emptyUI);
 
-            // Removes all the comments before continuing.
-            removeComment(user_stream);
+        //check if anything needs to be processed in the background
+        backproc = background(parlist, commandList, emptyUI);
 
-            //Exits program if exit is found.
-            exitProgram(user_stream);
+        //Checks for piping
+        cleanpipe(commandList,backproc);
 
-            //Parsing the string using strdup to change from const char* to char*
-            parsedString = strdup(user_stream.c_str());
+       delete [] commandList;
+    }
 
-	        char ** command = new char *[sizeof(parsedString)+1];
-            command = changeToArray(command, parsedString, parr);
-            
-            int pid = fork();
-            if (pid == -1)
-            {
-            	perror("Fork failed");
-	        }
-
-            else if (pid == 0)
-            {
-                if(execvp((const char*) command[0], (char* const*)command) == -1){
-                    perror("Unable to perform request");
-                }
-	
-            }
-
-            else
-            {
-                if(-1 == wait(NULL))
-                    perror("wait");
-            }
-
-        }
-        return 0;
-
-}	   
+    return 0;
+}
