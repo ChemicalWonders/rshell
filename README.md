@@ -28,6 +28,8 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 
 
 ###RSHELL with piping: Bugs
-* sometimes you need to press enter once to regain the shell
-* Spacing is not always correct.
-* Some built in commands don't always work, i.e. history.
+* Sometimes you need to press enter once to regain the shell, flushing problem
+* Spacing is not always correct when the first bug occurs
+* Some built in commands don't always work, i.e. history
+* when you enter |, < , >, or <<, you need to make sure that each of them is entered a space inbetween
+other wise the program thinks that it's part of the last argument.

@@ -62,7 +62,7 @@ void exitprogram(char stream[])
         exit(1);
 }
 
-int changeToArray(char ** commandList, char* command, bool& emptyinput)
+int changeToArray(char ** commandList, char* command)
 {
     int argnum = 0;
     commandList[argnum] = strtok(command," \n\t");
@@ -77,48 +77,51 @@ int changeToArray(char ** commandList, char* command, bool& emptyinput)
 
 void cleanpipe(char ** commandList, bool background)
 {
-    bool pipe = false;
+    bool pipeExist = false;
     int pipeloc = 0;
+    char** pipe1 = new char *[50];
+    char** pipe2 = new char *[50];
 
-    char** part1;
-    part1 = new char*[50];
-    char** part2;
-    part2 = new char *[50];
 
-    for(int i=0; commandList[i] != '\0';i++)
+    for(int i = 0; commandList[i]!= '\0'; ++i)
     {
         if(!strcmp(commandList[i], "|"))
         {
-            pipe = true;
+            pipeExist = true;
             pipeloc = i;
             break; 
         }
     }
-
-    if(pipe)
+    // If pipe exists, then I break it up into 2
+    if(pipeExist)
     {
-        for(int i=0; i<pipeloc; i++)
-            part1[i] = commandList[i];
+        int pipe2index = 0;
+        int i = 0;
+        for(; i < pipeloc; ++i)
+            pipe1[i] = commandList[i];
 
-        int pt2ind = 0;
+        pipe1[pipeloc] = NULL;
+
         for(int i=pipeloc+1; commandList[i] != '\0'; i++)
         {
-            part2[pt2ind] = commandList[i];
-            pt2ind++;
+            pipe2[pipe2index] = commandList[i];
+            ++pipe2index;
         }
-        part1[pipeloc] = NULL;
-        part2[pt2ind] = NULL;
+        
+        pipe2[pipe2index] = NULL;
 
-        executeWpipe(part1,part2,background);
+        executeWpipe(pipe1, pipe2, background);
     }
-    else//it's a regular command, no pipe
-        execute(commandList,background);
+    else
+    {
+        execute(commandList, background);
+    }
 
-    delete[] part1;
-    delete[] part2;
+    delete [] pipe1;
+    delete [] pipe2;
 }
 
-void executeWpipe(char** part1, char** part2, bool background)
+void executeWpipe(char** pipe1, char** pipe2, bool background)
 {
     int fd[2];
     if(pipe(fd) == -1)
@@ -129,40 +132,45 @@ void executeWpipe(char** part1, char** part2, bool background)
     {
         perror("execpipe.close");
     }
+
+    //start the first process in the pipe.
     else if(pid == 0)
     {
-        //write to pipe 
         if(-1 == dup2(fd[1],1))
             perror("execpipe.dup2");
+
         if(-1 == close(fd[0]))
             perror("execpipe.close");
-        if(-1 == execvp(part1[0], part1))
-        {
+
+        if(-1 == execvp(pipe1[0], pipe1))
             perror("execpipe.execvp");
-        }
+
         exit(1);
     }
-    //read from pipe
+    
+    // read in from the pipe
+    int savestdin = 0;
 
-    int savestdin;
-    if(-1 == (savestdin = dup(0)))//need to restore later or infinite loop
+    if(-1 == (savestdin = dup(0)))
         perror("execpipe.dup");
 
-    if(-1 == dup2(fd[0],0))
+    if(-1 == dup2(fd[0], 0))
         perror("execpipe.dup2");
+
     if(-1 == close(fd[1]))
         perror("execpipe.close");
 
     if(-1 == wait(0))
         perror("execpipe.wait");
 
+    // Required to check for another pipe in the second half.
+    cleanpipe(pipe2, background);
 
-    cleanpipe(part2,background);//in order to chain multiple pipes you have to check again if you have a pipe in the second half
-
-    if(dup2(savestdin,0) == -1)
+    if(dup2(savestdin, 0) == -1)
         perror("fd.dup2>>");
 
-    fflush(NULL);
+    //IF I ADD THE FFLUSH, IT BREAKS, but I need to be able to clean out the buffers.
+    //fflush(NULL);
 }
 
 bool background(int num, char ** commandList, bool emptyUI)
@@ -179,7 +187,7 @@ bool background(int num, char ** commandList, bool emptyUI)
     }
     else if(!emptyUI)
     {
-        char* copy = commandList[num];
+        char *copy = commandList[num];
         int len = strlen(commandList[num]) - 1;
         if(copy[len] == '&') 
         {
@@ -199,7 +207,7 @@ void fileDuplicate(char ** commandList)
         if(!strcmp(commandList[i], ">"))
         {
             commandList[i] = NULL;
-            if((fd = open(commandList[i + 1], O_TRUNC | O_WRONLY | O_CREAT, 0666 )) == -1)
+            if((fd = open(commandList[i + 1],  O_WRONLY | O_CREAT | O_TRUNC , 0666 )) == -1)
                 perror("fd.open>");
 
             if(dup2(fd, 1) == -1)
@@ -289,7 +297,7 @@ int main()
             emptyUI = true;
         
         //parsing input
-        int parlist = changeToArray(commandList, userInput, emptyUI);
+        int parlist = changeToArray(commandList, userInput);
 
         //check if anything needs to be processed in the background
         backproc = background(parlist, commandList, emptyUI);
