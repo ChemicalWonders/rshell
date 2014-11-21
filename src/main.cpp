@@ -18,16 +18,16 @@ void removeComment(string &);
 void exitProgram(char stream []);
 // Parses, and references the amount of commands
 int changeToArray(char ** commandList, char* commands, bool& emptyinput);
-
+// Checks for background processes
 bool background(int num, char ** commandList, bool emptyUI);
-
+// Checks for a pipe, and then cleans it out
 void cleanpipe(char** commandList, bool background);
-
+// Executes the pipe
 void executeWpipe(char** part1, char** part2, bool background);
-
+// Duplicates the file so that the pipe is able to process anything in it.
 void fileDuplicate(char ** commandList);
 // Old execute - execvp + wait with background process
-void execute(char ** commandList, bool backproc);
+void execute(char ** commandList); 
 
 void setUsernameHostname()
 {
@@ -114,7 +114,7 @@ void cleanpipe(char ** commandList, bool background)
     }
     else
     {
-        execute(commandList, background);
+        execute(commandList);
     }
 
     delete [] pipe1;
@@ -242,7 +242,7 @@ void fileDuplicate(char ** commandList)
     }
 }
 
-void execute(char ** commandList, bool backproc)
+void execute(char ** commandList)
 {
     int pid = fork();
 
@@ -258,9 +258,11 @@ void execute(char ** commandList, bool backproc)
 
         exit(1);
     }
-    if(!backproc)
+    else
+    {
         if(wait(0) == -1) 
             perror("exec.wait");
+    }
 }
 
 int main()
