@@ -11,12 +11,12 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 ###RSHELL: Bugs
 
 * connectors (|| and &&) do not work at all
-* when you put a comment in the middle of the command, it won't show.
+* when you put a comment in the middle of the command, it will deletes everything from that comment.
 * up arrow and down arrow does not show previous commands
-* echo with quotes don't work, my program only parses whitespace
-* changing directories does not work because it is a bash command
-* sometimes the exit command needs to be entered a few times before exiting.
-* tabbing does not autocomplete the file or command name.
+* echo with quotes work, but the include the quotes.
+* changing directories does not work because it is a built in bash
+* tabbing does not autocomplete the file or command name
+* going up and down with arrow keys don't work 
 
 ### ls: Bugs
 
@@ -26,3 +26,8 @@ I am licensed under the MIT License. If you have any use for my code, then I jus
 * When you put option flags in certain areas, it will work, but does not give desired output
 * path name is output on the top when you use a different directory.
 
+
+###RSHELL with piping: Bugs
+* sometimes you need to press enter once to regain the shell
+* Spacing is not always correct.
+* Some built in commands don't always work, i.e. history.
