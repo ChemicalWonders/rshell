@@ -27,7 +27,7 @@ void executeWpipe(char** part1, char** part2, bool background);
 // Duplicates the file so that the pipe is able to process anything in it.
 void fileDuplicate(char ** commandList);
 // Old execute - execvp + wait with background process
-void execute(char ** commandList); 
+void execute(char ** commandList);
 
 void setUsernameHostname()
 {
@@ -265,12 +265,33 @@ void execute(char ** commandList)
     }
 }
 
+//int newexecvp()
+//{
+
+//}
+
+void sighandler(int signum)
+{
+    if(signum == SIGINT)
+    {
+        signal(SIGINT, SIG_IGN);
+    }
+}
+
+//void changedirectory[]
+//{
+
+//}
+
 int main()
 {
 
     //Introductory Message to make sure shell is running.
     //cout << "Hello, and welcome to Kevin's shell." << endl;
     //Main function is all full of functions. yay
+
+     //handles control c
+     signal(SIGINT, sighandler);
 
     while(1)
     {
@@ -294,10 +315,11 @@ int main()
         // Checks for exit, if exit exists, then exit the program
         exitprogram(userInput);
 
+
         //takes care if user pressed enter
         if(!strcmp(userInput,""))
             emptyUI = true;
-        
+
         //parsing input
         int parlist = changeToArray(commandList, userInput);
 
@@ -306,8 +328,8 @@ int main()
 
         //Checks for piping
         cleanpipe(commandList,backproc);
-
-       delete [] commandList;
+ 
+      delete [] commandList;
     }
 
     return 0;
