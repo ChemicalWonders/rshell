@@ -275,6 +275,8 @@ void sighandler(int signum)
     if(signum == SIGINT)
     {
         signal(SIGINT, SIG_IGN);
+        if(errno== -1)
+            perror("SIG_IGN");
     }
 }
 
@@ -292,6 +294,8 @@ int main()
 
      //handles control c
      signal(SIGINT, sighandler);
+     if (errno==-1)
+         perror("SIGINT");
 
     while(1)
     {
