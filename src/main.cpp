@@ -21,16 +21,25 @@ int changeToArray(char ** commandList, char* commands, bool& emptyinput);
 // Checks for background processes
 bool background(int num, char ** commandList, bool emptyUI);
 // Checks for a pipe, and then cleans it out
-void cleanpipe(char** commandList, bool background);
+void cleanpipe(char** commandList, bool background, char *parlist[]);
 // Executes the pipe
-void executeWpipe(char** part1, char** part2, bool background);
+void executeWpipe(char** part1, char** part2, bool background, char *parlist[]);
 // Duplicates the file so that the pipe is able to process anything in it.
 void fileDuplicate(char ** commandList);
 // Old execute - execvp + wait with background process
-void execute(char ** commandList);
+void execute(char ** commandList, char *parlist[]);
+// New execvp
+void newexecvp(char *path[], char *argv[]);
+// Path PARSER, cuts up the path so that it is readable and can be accessed
+void pathdir(char *path, char **pathlist);
 
 void setUsernameHostname()
 {
+
+    char currentdir[1024];
+    if(!getcwd(currentdir, 1024))
+        perror("getcwd");
+    
     char * username = getlogin();
     if (username == NULL){
         perror("getlogin");
@@ -38,7 +47,8 @@ void setUsernameHostname()
     char host[100];
     if (-1 == gethostname(host, 100))
         perror("gethostname");
-
+    // Prints the current directory:
+    cout << currentdir << endl;
     // Prints out the username and hostname if it exists.
     if (username){
         cout << username << "@" << host;
@@ -75,7 +85,7 @@ int changeToArray(char ** commandList, char* command)
     return argnum;
 }
 
-void cleanpipe(char ** commandList, bool background)
+void cleanpipe(char ** commandList, bool background, char *parlist[])
 {
     bool pipeExist = false;
     int pipeloc = 0;
@@ -110,18 +120,18 @@ void cleanpipe(char ** commandList, bool background)
         
         pipe2[pipe2index] = NULL;
 
-        executeWpipe(pipe1, pipe2, background);
+        executeWpipe(pipe1, pipe2, background, parlist);
     }
     else
     {
-        execute(commandList);
+        execute(commandList, parlist);
     }
 
     delete [] pipe1;
     delete [] pipe2;
 }
 
-void executeWpipe(char** pipe1, char** pipe2, bool background)
+void executeWpipe(char** pipe1, char** pipe2, bool background, char *parlist[])
 {
     int fd[2];
     if(pipe(fd) == -1)
@@ -142,8 +152,10 @@ void executeWpipe(char** pipe1, char** pipe2, bool background)
         if(-1 == close(fd[0]))
             perror("execpipe.close");
 
-        if(-1 == execvp(pipe1[0], pipe1))
-            perror("execpipe.execvp");
+        newexecvp(parlist, pipe1);
+
+       // if(-1 == execvp(pipe1[0], pipe1))
+            //perror("execpipe.execvp");
 
         exit(1);
     }
@@ -164,7 +176,7 @@ void executeWpipe(char** pipe1, char** pipe2, bool background)
         perror("execpipe.wait");
 
     // Required to check for another pipe in the second half.
-    cleanpipe(pipe2, background);
+    cleanpipe(pipe2, background, parlist);
 
     if(dup2(savestdin, 0) == -1)
         perror("fd.dup2>>");
@@ -242,7 +254,7 @@ void fileDuplicate(char ** commandList)
     }
 }
 
-void execute(char ** commandList)
+void execute(char ** commandList, char *parlist[])
 {
     int pid = fork();
 
@@ -252,11 +264,12 @@ void execute(char ** commandList)
     else if(pid == 0)
     {
         fileDuplicate(commandList);
+        
+        newexecvp(parlist, commandList);
+        //if(execvp(commandList[0], commandList) == -1)
+            //perror("exec.execvp");
 
-        if(execvp(commandList[0], commandList) == -1)
-            perror("exec.execvp");
-
-        exit(1);
+               exit(1);
     }
     else
     {
@@ -265,10 +278,48 @@ void execute(char ** commandList)
     }
 }
 
-//int newexecvp()
-//{
+void pathdir(char *path, char **pathlist)
+{
+    int numpath=0;
+    pathlist[numpath] = strtok(path,":");
 
-//}
+    while(pathlist[numpath] != NULL)
+    {
+        ++numpath;
+        pathlist[numpath] = strtok(NULL, ":");
+    }
+}
+
+void newexecvp(char *path[], char *argv[])
+{
+    int execvnum = 0;
+    for(int i=0; path[i] != '\0'; i++)
+    {
+	char check[500] = {0};
+	strcpy(check, path[i]);
+		
+        if(check[strlen(check)-1] != '/')
+	    strcat(check, "/");
+	strcat(check,argv[0]);
+
+	char *new_argv[100] = {0};
+	new_argv[0] = check;
+	for(int j=1; argv[j] != NULL; j++)
+	    new_argv[j] = argv[j]; 
+        execvnum = execv(new_argv[0], new_argv);
+	if(execvnum == -1); 
+	
+        else
+            return;
+	}
+
+	if(errno==-1)
+	{
+		perror("execv");
+		exit(1);
+	}
+
+}
 
 void sighandler(int signum)
 {
@@ -280,22 +331,23 @@ void sighandler(int signum)
     }
 }
 
-//void changedirectory[]
-//{
-
-//}
-
 int main()
 {
 
     //Introductory Message to make sure shell is running.
     //cout << "Hello, and welcome to Kevin's shell." << endl;
     //Main function is all full of functions. yay
+    
+    //get the path and parse it 
+    char *paths = getenv("PATH");
+    char *trackedpath[50];
 
-     //handles control c
-     signal(SIGINT, sighandler);
-     if (errno==-1)
-         perror("SIGINT");
+    pathdir(paths, trackedpath);
+    
+    //handles control c
+    signal(SIGINT, sighandler);
+    if (errno==-1)
+        perror("SIGINT");
 
     while(1)
     {
@@ -313,25 +365,38 @@ int main()
         getline(cin, commands);
         removecomment(commands);
         
+        // If there is nothing, then go back to the top of the loop.
+        if (commands.size() == 0)
+            continue; 
         //changes commands into a cstring then copies into userInput
         strcpy(userInput, commands.c_str());
 
         // Checks for exit, if exit exists, then exit the program
         exitprogram(userInput);
-
-
-        //takes care if user pressed enter
-        if(!strcmp(userInput,""))
-            emptyUI = true;
-
+        
         //parsing input
         int parlist = changeToArray(commandList, userInput);
+         
+        //Changing Directories: Built into Bash 
+        if(!strcmp(commandList[0], "cd"))
+        {
+            if(commands.size() == 2){
+		char *home = getenv("HOME");
+		if(-1 == chdir(home))
+                    perror("chdir.HOME");
+            }
+            else{
+                if(-1 == chdir(commandList[1]))
+                    perror("chdir");
+	    }
+            continue;
+	} 
 
         //check if anything needs to be processed in the background
         backproc = background(parlist, commandList, emptyUI);
 
         //Checks for piping
-        cleanpipe(commandList,backproc);
+        cleanpipe(commandList,backproc, trackedpath);
  
       delete [] commandList;
     }

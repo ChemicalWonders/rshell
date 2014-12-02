@@ -37,3 +37,7 @@ other wise the program thinks that it's part of the last argument.
 * when you try running commands, sometimes, an extra enter is required for the commandline to print again. I think it's a problem with my program.
 * when you run rshell, it will output a file error with <.
 
+
+###RSHELL with signals: Bugs
+* When you typed in ^C, you have to press enter to create a new prompt
+* idk
