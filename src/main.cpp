@@ -307,18 +307,17 @@ void newexecvp(char *path[], char *argv[])
 	for(int j=1; argv[j] != NULL; j++)
 	    new_argv[j] = argv[j]; 
         execvnum = execv(new_argv[0], new_argv);
-	if(execvnum == -1); 
 	
+        if(execvnum == -1); 
         else
             return;
-	}
+    }
 
 	if(errno==-1)
 	{
 		perror("execv");
 		exit(1);
 	}
-
 }
 
 void sighandler(int signum)

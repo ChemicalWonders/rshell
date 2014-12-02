@@ -40,4 +40,6 @@ other wise the program thinks that it's part of the last argument.
 
 ###RSHELL with signals: Bugs
 * When you typed in ^C, you have to press enter to create a new prompt
-* idk
+* If the file does not exist in your PATH, then rshell does not do anything, and prints an empty prompt. "IMPORTANT"
+* when you try to cat a file, sometimes it might print out random characters, and not want to work. i.e. cat /dev/random might print random stuff, but command c will stop it.
+* ~ is not implemented for cd.
