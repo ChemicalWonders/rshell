@@ -43,3 +43,4 @@ other wise the program thinks that it's part of the last argument.
 * If the file does not exist in your PATH, then rshell does not do anything, and prints an empty prompt. "IMPORTANT"
 * when you try to cat a file, sometimes it might print out random characters, and not want to work. i.e. cat /dev/random might print random stuff, but command c will stop it.
 * ~ is not implemented for cd.
+* make rm will not work unless you move the file somewhere else, but it will work.
