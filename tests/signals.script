@@ -1,0 +1,93 @@
+Script started on Fri 05 Dec 2014 12:13:22 PM PST
+~
+kchan039@hammer $ cs100
+[0;91m
+===============================================================================
+|                                                                             |
+| You have enabled settings specific for cs100.                               |
+|                                                                             |
+===============================================================================
+[0m
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~[0;95m [0;36m$[0m ls
+CS_111	CS_12  CS_14  CS_161L  CS_61  Desktop  Documents  Downloads  Music  my_alu  Pictures  Public  public_html  sketchbook  Templates  Videos  Wallpapers  WINDOWS
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~[0;95m [0;36m$[0m cd Documents/
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents[0;95m [0;36m$[0m ls
+cs100lab  hacktober  MATLAB  miucr-cs100  myCString  rshell  ucr-cs100
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents[0;95m [0;36m$[0m cd s[Krshell/
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m make
+test -d bin || mkdir bin
+g++ ./src/main.cpp -Wall -Werror -ansi -pedantic -o ./bin/rshell
+g++ ./src/ls.cpp   -Wall -Werror -ansi -pedantic -o ./bin/ls
+g++ ./src/cp.cpp   -Wall -Werror -ansi -pedantic -o ./bin/cp
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m bi[K[Kbin/rhs[K[Kshell
+/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ cat
+hello
+hello
+^C/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ ls
+bin  LICENSE  Makefile	README.md  src	tests
+/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ eci   ex  ls
+bin  LICENSE  Makefile	README.md  src	tests
+/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ ls -al
+total 44
+drwx------ 6 kchan039 classes 4096 Dec  5 12:11 .
+drwx------ 9 kchan039 classes 4096 Dec  3 13:02 ..
+drwx------ 2 kchan039 classes 4096 Dec  5 12:11 bin
+drwx------ 8 kchan039 classes 4096 Dec  5 12:11 .git
+-rw------- 1 kchan039 classes  483 Oct 21 23:59 .gitattributes
+-rw------- 1 kchan039 classes  727 Oct 21 23:59 .gitignore
+-rw------- 1 kchan039 classes 1075 Oct 21 23:59 LICENSE
+-rw------- 1 kchan039 classes  391 Nov 11 23:04 Makefile
+-rw------- 1 kchan039 classes 2520 Dec  3 11:33 README.md
+drwx------ 2 kchan039 classes 4096 Dec  2 16:07 src
+drwx------ 2 kchan039 classes 4096 Dec  5 12:11 tests
+/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ ls - ~ la  -la
+/bin/ls: cannot access ~: No such file or directory
+/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ ls .. l -la
+total 52
+drwx------  9 kchan039 classes  4096 Dec  3 13:02 .
+drwx--x--x 58 kchan039 classes 20480 Dec  3 13:56 ..
+drwx------  2 kchan039 classes  4096 Nov 17 11:54 cs100lab
+drwx------  5 kchan039 classes  4096 Nov 24 13:49 hacktober
+drwx------  2 kchan039 classes  4096 Jan 21  2014 MATLAB
+drwx------  8 kchan039 classes  4096 Dec  3 13:02 miucr-cs100
+drwx------  2 kchan039 classes  4096 Nov 10 19:31 myCString
+drwx------  6 kchan039 classes  4096 Dec  5 12:11 rshell
+drwx------  9 kchan039 classes  4096 Dec  4 18:46 ucr-cs100
+/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ l m cd ..
+/class/classes/kchan039/Documents
+kchan039@hammer.cs.ucr.edu$ ls
+cs100lab  hacktober  MATLAB  miucr-cs100  myCString  rshell  ucr-cs100
+/class/classes/kchan039/Documents
+kchan039@hammer.cs.ucr.edu$ cd
+/class/classes/kchan039
+kchan039@hammer.cs.ucr.edu$ ls
+CS_111	CS_12  CS_14  CS_161L  CS_61  Desktop  Documents  Downloads  Music  my_alu  Pictures  Public  public_html  sketchbook  Templates  Videos  Wallpapers  WINDOWS
+/class/classes/kchan039
+kchan039@hammer.cs.ucr.edu$ cd Doc	
+chdir: No such file or directory
+/class/classes/kchan039
+kchan039@hammer.cs.ucr.edu$ cd Co D  Documents
+/class/classes/kchan039/Documents
+kchan039@hammer.cs.ucr.edu$ ls
+cs100lab  hacktober  MATLAB  miucr-cs100  myCString  rshell  ucr-cs100
+/class/classes/kchan039/Documents
+kchan039@hammer.cs.ucr.edu$ cd rhse   shell
+/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ ls
+bin  LICENSE  Makefile	README.md  src	tests
+/class/classes/kchan039/Documents/rshell
+kchan039@hammer.cs.ucr.edu$ exit
+[s%%%%%%%%%%[u[0;32mkchan039[0;36m@[0;32mcs100[0;36m:[0;32m~/Documents/rshell[0;95m (master) [0;36m$[0m exit
+exit
+~
+kchan039@hammer $ exit
+exit
+
+Script done on Fri 05 Dec 2014 12:16:01 PM PST
